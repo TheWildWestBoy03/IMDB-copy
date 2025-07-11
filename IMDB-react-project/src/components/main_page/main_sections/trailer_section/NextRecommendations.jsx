@@ -3,7 +3,6 @@ import NextRecommendation from './NextRecommendation';
 export default function NextRecommendations(props) {
     const {movies, currentPosition} = props
 
-    console.log(movies)
     const first_recommendation_data = movies.length > 0 && movies[(currentPosition + 1) % movies.length]
     const second_recommendation_data = movies.length > 0 && movies[(currentPosition + 2) % movies.length]
     const third_recommendation_data = movies.length > 0 && movies[(currentPosition + 3) % movies.length]

@@ -8,14 +8,13 @@ export default function TrailerCard(props) {
     const currentPosition = props.currentPosition
 
     if (currentPosition == index) {
-        console.log(index + " " + currentPosition)
         return (
-            <div className='my-5 d-flex justify-content-end flex-wrap position-relative me-2'>
+            <div className='my-5 d-flex justify-content-end flex-wrap position-relative me-2 p-0'>
                 <img
                     src={baseImageUrl + backdrop_path}
                     alt='backdrop_image'
                     className='img-fluid'
-                    style={{ width: '87%', borderRadius: '16px' }}
+                    style={{ width: '100%', borderRadius: '16px' }}
                 />
                 <button
                     onClick={props.handleDecrement}
@@ -23,7 +22,7 @@ export default function TrailerCard(props) {
                     style={{
                     position: 'absolute',
                     backgroundColor: 'black',
-                    left: '13%',
+                    left: '0%',
                     opacity: '.5',
                     top: '50%',
                     transform: 'translateY(-50%)',
@@ -51,14 +50,14 @@ export default function TrailerCard(props) {
                     {'>'}
                 </button>
     
-                <div className='d-flex position-absolute justify-content-start bottom-0' style={{ left: '15%', right: '0%' }}>
+                <div className='d-flex position-absolute justify-content-start bottom-0' style={{ left: '5%', right: '0%' }}>
                     <img
                         src={baseImageUrl + poster_path}
                         alt='position-absolute poster_path'
                         className='shadow img-fluid'
                         style={{ maxHeight: '10rem', maxWidth: '7rem' }}
                     />
-                    <div onMouseLeave={() => setEmphasizingPlaySymbol('white')} onMouseEnter={() => setEmphasizingPlaySymbol('yellow')} className="d-flex justify-content-start align-items-end w-100">
+                    <div onMouseLeave={() => setEmphasizingPlaySymbol('white')} onMouseEnter={() => setEmphasizingPlaySymbol('#e6b919')} className="d-flex justify-content-start align-items-end w-100">
                         <div className='d-flex'>
                             <a href="#" className='text-decoration-none text-white fw-bold' style={{ display: 'inline-block', width: '7.5rem', height: '7.5rem' }}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
