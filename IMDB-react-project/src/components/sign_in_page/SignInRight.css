@@ -1,0 +1,7 @@
+p:nth-child(odd) {
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+}

@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors'
-import booksRoute from './routes/booksRoute.js';
+import booksRoute from './routes/usersRoute.js';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 
@@ -16,16 +16,7 @@ const corsOptions = {
 
 app.use(express.json())
 app.use(cors(corsOptions))
-app.use('/books', booksRoute)
-
-const uri = process.env.ATLAS_URI
-mongoose.connect(uri, {
-});
-
-const connection = mongoose.connection
-connection.once('open', () => {
-    console.log("MongoDB database connection established successfully");
-})
+app.use('/', booksRoute)
 
 app.get('/', (request, response) => {
   response.send('Hello World!')
