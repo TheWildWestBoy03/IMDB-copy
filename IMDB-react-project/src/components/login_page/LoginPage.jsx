@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import SignedInContext from "../../context/SignedInContext";
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [signedIn, setSignedIn, userData] = useContext(SignedInContext)
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -15,14 +19,26 @@ export default function LoginPage() {
         }
 
         try {
-            const response = axios.post('http://localhost:3000/login', {
+            const response = await axios.post('http://localhost:3000/login', {
                 email: email,
                 password: password
+            }, {
+                withCredentials: true,
             })
-            console.log(response)
+            
+            console.log(response);
+            if (response.status === 200) {
+                setSignedIn(true)
+                navigate('../')
+            } else if (response.status === 404) {
+                console.log("User not found");
+            } else if (response.status === 401) {
+                console.log("Incorrect password!");
+            }
         } catch (error) {
-            console.log(error)
+            return;
         }
+
     }
 
     return (

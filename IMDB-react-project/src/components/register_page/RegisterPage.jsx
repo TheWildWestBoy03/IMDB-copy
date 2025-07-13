@@ -8,8 +8,9 @@ export default function RegisterPage() {
     const [password, setPassword] = useState('');
     const [reenteredPassword, setReenteredPassword] = useState('');
 
-    function handleRegistration(e) {
+    async function handleRegistration(e) {
         e.preventDefault()
+
         if (username === '' || email === '' || password === '' || reenteredPassword === '') {
             console.log("enter data");
             return;
@@ -19,22 +20,28 @@ export default function RegisterPage() {
             console.log("Password should be at least 8 characters")
             return;
         }
-
+    
         if (password !== reenteredPassword) {
             console.log("Reenter the password correctly")
+            return;
         }
 
         // connection with server
         try {
-            const response = axios.post('http://localhost:3000/register', {
+            const response = await axios.post('http://localhost:3000/register', {
                 username: username,
                 email: email,
                 password: password
             })
 
-            console.log(response)
+            if (response.status == 201) {
+                window.location = "http://localhost:5173/login";
+            } else if (response.status == 400) {
+                console.log("Another user with this username exists!");
+            }
         } catch (error) {
             console.log(error)
+            return;
         }
     }
 

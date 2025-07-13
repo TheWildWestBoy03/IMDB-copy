@@ -10,20 +10,28 @@ import MainPage from './components/main_page/MainPage';
 import LoginPage from './components/login_page/LoginPage';
 import SignInPage from './components/sign_in_page/SignInPage';
 import RegisterPage from './components/register_page/RegisterPage';
+import SignedInContext from './context/SignedInContext';
+import { useState} from 'react';
+import useFetchUserData from './hooks/useFetchUserData'
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Header/>}>
-          <Route index path="/" element={<MainPage/>}></Route>
-          <Route path="/signin" element={<SignInPage/>}></Route>
-        </Route>
-        <Route path="/login" element={<LoginPage/>}></Route>
-        <Route path="/register" element={<RegisterPage/>}></Route>
-      </Routes>
+  const [signedIn, setSignedIn] = useState(false);
+  const userData = useFetchUserData()
 
-    </BrowserRouter>
+  return (
+    <SignedInContext.Provider value={[signedIn, setSignedIn, userData]}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Header/>}>
+            <Route index path="/" element={<MainPage/>}></Route>
+            <Route path="/signin" element={<SignInPage/>}></Route>
+          </Route>
+          <Route path="/login" element={<LoginPage/>}></Route>
+          <Route path="/register" element={<RegisterPage/>}></Route>
+        </Routes>
+
+      </BrowserRouter>
+    </SignedInContext.Provider>
   );
 }
 

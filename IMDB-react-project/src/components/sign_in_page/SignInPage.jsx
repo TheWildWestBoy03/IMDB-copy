@@ -13,7 +13,6 @@ export default function SignInPage() {
                     </div>
                 </div>
             </div>
-            <div className='row bg-black' style={{minHeight: '300px'}}></div>
         </>
     )
 }

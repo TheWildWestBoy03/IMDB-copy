@@ -59,13 +59,11 @@ export default function CelebritySection() {
         handleButtonDisplaying()
     }, [groupOrder])
 
-    console.log(celebritiesInformation)
     function handleCarouselMovement(direction) {
         const ul = document.getElementById('carousel');
         const distance = ul.clientWidth;
 
         if (ul === null) {
-            console.log("Nothing happens...");
             return;
         } else if (direction === 'left') {
             setGroupOrder(groupOrder - 1)

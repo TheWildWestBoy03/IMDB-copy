@@ -2,13 +2,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../../../App.css'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
+import SignedInContext from '../../../context/SignedInContext';
+import Footer from '../footer_section/Footer';
 export default function Header() {
   const [search_type, set_search_type] = useState("All")
   const [movie_data, set_movie_data] = useState([])
   const [currentPosition, setCurrentPosition] = useState(0)
+  const [signedIn, setSignedIn, userData] = useContext(SignedInContext)
 
   function handleIncrement() {
       setCurrentPosition((currentPos) => {
@@ -22,6 +25,14 @@ export default function Header() {
       })
   }
 
+  function handleSignInBtnContent() {
+    console.log(signedIn)
+    if (signedIn === true || userData.signedIn === true) {
+      return "Signed in"
+    }
+
+    return "Sign in"
+  }
 
   useEffect(() => {
     async function handleFetch() {
@@ -92,7 +103,9 @@ export default function Header() {
           <button onClick={() => {
                 window.path
             }}
-            className='fw-bold btn text-white px-3 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none"to="/signin">Sign in</Link></button>
+            className='fw-bold btn text-white px-3 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none"to="/signin">
+              {handleSignInBtnContent()}
+              </Link></button>
           <button className='fw-bold btn text-white px-3 py-0 lh-1 rounded-pill button-hover-effect'>En</button>
         </div>
         <div className='d-flex d-xl-none fw-bold'>
@@ -101,6 +114,7 @@ export default function Header() {
         </div>
       </header>
       <Outlet></Outlet>
+      <Footer></Footer>
     </>
   );
 }
