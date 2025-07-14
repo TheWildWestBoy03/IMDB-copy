@@ -1,0 +1,10 @@
+ul {
+  width: 100vw;
+  height: 300px;
+  padding: 10px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+
+  columns: 1;
+  text-align: center;
+}

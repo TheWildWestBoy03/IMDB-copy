@@ -16,7 +16,7 @@ import useFetchUserData from './hooks/useFetchUserData'
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
-  const userData = useFetchUserData()
+  const userData = useFetchUserData("http://localhost:3000/status")
 
   return (
     <SignedInContext.Provider value={[signedIn, setSignedIn, userData]}>

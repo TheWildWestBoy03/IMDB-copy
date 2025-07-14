@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 
 import SignedInContext from "../../context/SignedInContext";
+import useFetchUserData from "../../hooks/useFetchUserData";
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -26,10 +27,10 @@ export default function LoginPage() {
                 withCredentials: true,
             })
             
-            console.log(response);
             if (response.status === 200) {
                 setSignedIn(true)
-                navigate('../')
+
+                window.location = '/';
             } else if (response.status === 404) {
                 console.log("User not found");
             } else if (response.status === 401) {

@@ -89,9 +89,13 @@ router.get('/status', authMiddleware, async (request, response) => {
     response.status(200).send(userInfo);
 })
 
+router.post('/logout', authMiddleware, async (request, response) => {
+    response.clearCookie('access-token');
+    response.status(201).send("User logout");
+})
+
 function authMiddleware(request, response, next) {
     const token = request.cookies['access-token'];
-
     if (!token) {
         return response.status(401).json("Not authentified!")
     }
@@ -108,5 +112,7 @@ function authMiddleware(request, response, next) {
         return response.status(500).json("Internal server error!");
     }
 }
+
+
 
 export default router;

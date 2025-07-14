@@ -1,9 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-const useFetchUserData = () => {
-    const [userData, setUserData] = useState({})
-    const fetchingUri = "http://localhost:3000/status"
+const useFetchUserData = (fetchingUri) => {
+    const [userData, setUserData] = useState({});
 
     useEffect(() => {
         async function handleFetch() {

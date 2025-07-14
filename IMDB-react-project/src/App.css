@@ -70,3 +70,7 @@ html, body {
 .button-hover-effect:hover {
   background-color: gray;
 }
+
+.user-dropdown-item:hover {
+   background-color: #313131 !important; 
+}
