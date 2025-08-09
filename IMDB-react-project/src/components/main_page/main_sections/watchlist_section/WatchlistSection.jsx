@@ -9,11 +9,11 @@ export default function WatchListSection() {
     function handleWatchlistLogic() {
         if (!userWatchlist) {
             return (
-                <div class="text-center text-white">
+                <div className="text-center text-white">
                     <a href="#"><FontAwesomeIcon style={{color: 'gray'}}className="fs-3 mb-3" icon={faPlusCircle}></FontAwesomeIcon></a>
                     <p className="fw-bold">Your Watchlist is empty</p>
                     <p className="mb-5">Save shows and movies to keep track of what you want to watch.</p>
-                    <button class="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Browse popular movies</button>
+                    <button className="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Browse popular movies</button>
                 </div>
             )
         }
@@ -37,12 +37,12 @@ export default function WatchListSection() {
                 </div>
                 <div className="col-1" style={{ maxHeight: '300px' }}></div>
             </div>
-            <div class="row mb-5">
-                <div class="col-1"></div>
-                <div class="col-10">
+            <div className="row mb-5">
+                <div className="col-1"></div>
+                <div className="col-10">
                     {handleWatchlistLogic()}
                 </div>
-                <div class="col-1"></div>
+                <div className="col-1"></div>
             </div>
         </>
     )

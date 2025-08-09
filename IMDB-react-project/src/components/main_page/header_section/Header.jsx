@@ -8,8 +8,10 @@ import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faC, faCircle, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
+import HiddenMenu from './HiddenMenu';
 import SignedInContext from '../../../context/SignedInContext';
 import Footer from '../footer_section/Footer';
+
 export default function Header() {
   const [search_type, set_search_type] = useState("All")
   const [movie_data, set_movie_data] = useState([])
@@ -50,9 +52,9 @@ export default function Header() {
     if (signedIn === true || userData.signedIn === true) {
       return (
         <div className='dropdown d-lg-flex align-items-center'>
-          <button className="btn fw-bold h-100 text-white px-3 py-0 rounded-pill button-hover-effect" type="button" data-bs-toggle="dropdown">
+          <button className="btn fw-bold h-100 text-white px-1 py-0 rounded-pill button-hover-effect" type="button" data-bs-toggle="dropdown">
             <FontAwesomeIcon className='text-white me-2' icon={faCircleUser}></FontAwesomeIcon>
-            {userData?.userData?.username}
+            {userData?.userData?.username.slice(0, 5)}
           </button>
           <ul className="dropdown-menu" style={{minHeight: '300px', maxWidth: '50%', backgroundColor: "#1f1f1f" }}>
             <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your profile</a></li>
@@ -94,19 +96,30 @@ export default function Header() {
       handleFetch();
     }
   }, []);
+
+  const displayHiddenMenu = (event) => {
+    const hiddenMenu = document.getElementById('hidden');
+    hiddenMenu.classList.add('show');
+    document.body.style.overflowY = 'hidden';
+  }
   const currentMovie = movie_data[currentPosition];
 
   return (
     <>
-      <header className="d-flex justify-content-center align-items-center py-2 px-2" style={{ backgroundColor: '#121212' }}>
-        <a className="btn bg-warning rounded p-0 me-2" style={{ fontWeight: 'bolder', fontSize: '1rem' }}>IMDB</a>
-        <a href="#" className='d-flex justify-content-center align-items-center rounded-pill text-white fw-bold text-decoration-none rounded px-2 py-1 button-hover-effect me-2'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" style={{ height: '1.5rem', width: '1.5rem', fontWeight: 'bold' }}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          <span>Menu</span>
-        </a>
-        <div className="input-group d-none d-md-flex" style={{ maxWidth: '550px' }}>
+      <HiddenMenu></HiddenMenu>
+      <header className="d-flex justify-content-between justify-content-md-center align-items-center py-2 px-2" style={{ backgroundColor: '#121212' }}>
+        <div className='d-flex flex-row-reverse flex-lg-row'>
+          <a className="btn bg-warning rounded p-0 me-2" style={{ fontWeight: 'bolder', fontSize: '1rem' }}>IMDB</a>
+          <button onClick={(event) => {displayHiddenMenu(event)}} 
+                  className='d-flex justify-content-center align-items-center border-0 rounded-pill btn text-white fw-bold px-2 py-1 button-hover-effect me-2'
+                  style={{cursor: 'pointer'}}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" style={{ height: '1.5rem', width: '1.5rem', fontWeight: 'bold' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            Menu
+          </button>
+        </div>
+        <div className="input-group d-none d-sm-flex" style={{ maxWidth: '550px' }}>
           <button type="button" className="btn bg-white dropdown-toggle fw-bold px-3" data-bs-toggle="dropdown">
             {search_type}
           </button>
@@ -146,39 +159,50 @@ export default function Header() {
               <li className='text-white dropdown-item user-dropdown-item'>
                 <div className="form-check">
                   <input type="radio" id="radio1" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label for="radio1" className="form-check-label">English</label>
+                  <label htmlFor="radio1" className="form-check-label">English</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
                 <div className="form-check">
                   <input type="radio" id="radio2" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label for="radio2" className="form-check-label">French</label>
+                  <label htmlFor="radio2" className="form-check-label">French</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
                 <div className="form-check">
                   <input type="radio" id="radio3" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label for="radio3" className="form-check-label">Italian</label>
+                  <label htmlFor="radio3" className="form-check-label">Italian</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
                 <div className="form-check">
                   <input type="radio" id="radio4" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label for="radio4" className="form-check-label">Spanish</label>
+                  <label htmlFor="radio4" className="form-check-label">Spanish</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
                 <div className="form-check">
                   <input type="radio" id="radio5" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label for="radio5" className="form-check-label">Romanian</label>
+                  <label htmlFor="radio5" className="form-check-label">Romanian</label>
                 </div>
               </li>
               <li className='dropdown-item imdb-header-dropdown'></li>
             </ul>
           </div>
         </div>
-        <div className='d-flex d-xl-none fw-bold'>
-          <button className='btn text-white px-3 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none" to="/signin">Sign in</Link></button>
+        <div className='d-flex d-md-none fw-bold'>
+          <button type="button" className="btn btn-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              strokeWidth={1.5} stroke="currentColor" style={{ height: '1.5rem', width: '1.5rem' }}>
+              <path strokeLinecap="round" strokeLinejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+          </button>
+          <button className='btn text-white px-1 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none" to="/signin">{handleSignInBtnContent()}</Link></button>
+          <button className='btn text-black fw-bold bg-warning rounded-pill px-3 py-0 lh-1 button-hover-effect'>Use app</button>
+        </div>
+        <div className='d-none d-md-flex d-xl-none fw-bold'>
+          <button className='btn text-white px-1 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none" to="/signin">{handleSignInBtnContent()}</Link></button>
           <button className='btn text-black fw-bold bg-warning rounded-pill px-3 py-0 lh-1 button-hover-effect'>Use app</button>
         </div>
       </header>

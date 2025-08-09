@@ -103,7 +103,6 @@ function authMiddleware(request, response, next) {
     try {
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
-        // these are only the authentification data + signed in fact
         request.userInfo = decoded;
         request.userSignedIn = true;
         next()

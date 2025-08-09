@@ -38,8 +38,8 @@ export default function Footer() {
                         />
                     </div>
                 </div>
-                <div class="py-4 d-flex d-lg-none justify-content-center w-100" style={{backgroundColor: '#1a1a1a'}}>
-                    <button class="fw-bold btn bg-warning rounded-pill">Get the IMDb App</button>
+                <div className="py-4 d-flex d-lg-none justify-content-center w-100" style={{backgroundColor: '#1a1a1a'}}>
+                    <button className="fw-bold btn bg-warning rounded-pill">Get the IMDb App</button>
                 </div>
                 <div className="py-5 d-flex d-lg-none align-items-center justify-content-center mt-1" style={{gap: '2.75rem'}}>
                     <FontAwesomeIcon className='text-white' style={{fontSize: '1.5rem'}} icon={faTiktok}></FontAwesomeIcon>
@@ -55,7 +55,7 @@ export default function Footer() {
                     <a className="text-decoration-none text-white" href="#">Box Office Mojo <FontAwesomeIcon icon={faUpRightFromSquare} className="text-white"/></a>
                     <a className="text-decoration-none text-white" href="#">Licence IMDb Data <FontAwesomeIcon icon={faUpRightFromSquare} className="text-white"/></a>
                 </div>
-                <div class="mt-2 d-flex justify-content-center w-75 flex-wrap" style={{rowGap: '1rem', columnGap: '3.5rem'}}>
+                <div className="mt-2 d-flex justify-content-center w-75 flex-wrap" style={{rowGap: '1rem', columnGap: '3.5rem'}}>
                     <a className="text-decoration-none text-white" href="#">Press Room</a>
                     <a className="text-decoration-none text-white" href="#">Advertising <FontAwesomeIcon icon={faUpRightFromSquare} className="text-white"/></a>
                     <a className="text-decoration-none text-white" href="#">Jobs <FontAwesomeIcon icon={faUpRightFromSquare} className="text-white"/></a>
