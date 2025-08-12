@@ -7,6 +7,7 @@ export default function WatchListSection() {
     const userWatchlist = userData?.watchlist
 
     function handleWatchlistLogic() {
+        console.log(userData)
         if (!userWatchlist) {
             return (
                 <div className="text-center text-white">
@@ -18,8 +19,8 @@ export default function WatchListSection() {
             )
         }
 
+        
         return "WISHLIST UNDER CONSTRUCTION";
-
     }
 
     return (
@@ -27,7 +28,7 @@ export default function WatchListSection() {
             <div className="row">
                 <div className="col-1" style={{ maxHeight: '300px' }}></div>
                 <div className="col-10 py-3 d-flex justify-content-between">
-                    <div className="w-100">
+                    <div className="w-75">
                         <h3 className="text-warning fw-bold">What to watch</h3>
                         <h3 className="text-white" style={{ borderLeft: '3px solid #F5C518', padding: '0.3rem' }}>From your Watchlist</h3>
                         <p className="text-secondary">Movies and TV shows that you have watchlisted</p>

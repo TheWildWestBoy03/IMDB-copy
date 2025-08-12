@@ -1,0 +1,31 @@
+.radio-list input[type="radio"] {
+    zoom: 1.75;
+    accent-color: yellow;
+    margin-right: 5px;
+    background: transparent;
+}
+
+.radio-list label {
+    display: flex;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.radio-list li {
+    padding: 8px;
+    font-size: 12px;
+}
+
+.radio-list li:first-of-type {
+    border-bottom: 1px solid gray;
+    padding-top: 16px;
+    letter-spacing: 1.75px;
+}
+
+.radio-list li:nth-of-type(2), .radio-list li:nth-of-type(3) {
+    border-bottom: 1px solid gray;
+}
+
+.radio-list li:nth-of-type(3) {
+    letter-spacing: 1.75px;
+}

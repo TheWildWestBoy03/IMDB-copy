@@ -2,11 +2,15 @@ import express, { response } from 'express'
 import {User} from '../models/userModel.js'
 import bcrypt, { hash } from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import axios from 'axios'
+
 const router = express.Router()
 
 function generateAccessToken(user) {
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '3600s'});
 }
+
+router.route('/').get((request, response) => response.json("User microservice working neat!"));
 
 router.post('/login', async (request, response) => {
     console.log("Login in progress");
@@ -48,7 +52,6 @@ router.post('/login', async (request, response) => {
     }
 });
 
-
 router.post('/register', async(request, response) => {
     console.log("Registration in progress")
 
@@ -74,6 +77,14 @@ router.post('/register', async(request, response) => {
 
         await newUser.save()
 
+        const url = 'http://localhost:3003/add-watchlist';
+        const request_body = {
+            name: newUser.username,
+            userId: newUser._id,
+        }
+
+        await axios.post(url, request_body);
+
         response.status(201).json("New user registered!");
     } catch (error) {
         console.log(error);
@@ -96,7 +107,7 @@ router.post('/logout', authMiddleware, async (request, response) => {
 
 function authMiddleware(request, response, next) {
     const token = request.cookies['access-token'];
-    if (!token) {
+    if (!token || token == undefined) {
         return response.status(401).json("Not authentified!")
     }
 
@@ -112,6 +123,6 @@ function authMiddleware(request, response, next) {
     }
 }
 
-
-
 export default router;
+
+// router watchlist handling

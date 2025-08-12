@@ -13,7 +13,6 @@ export default function TrailerCard(props) {
                 <img
                     src={baseImageUrl + backdrop_path}
                     alt='backdrop_image'
-                    className='img-fluid'
                     style={{ width: '100%', borderRadius: '16px' }}
                 />
                 <button

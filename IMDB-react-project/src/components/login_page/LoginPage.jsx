@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 
 import SignedInContext from "../../context/SignedInContext";
-import useFetchUserData from "../../hooks/useFetchUserData";
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -20,7 +19,7 @@ export default function LoginPage() {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/login', {
+            const response = await axios.post('http://localhost:3000/api/auth/login', {
                 email: email,
                 password: password
             }, {

@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../../../App.css'
 import axios from 'axios'
+import './Header.css'
 
 import { useState, useEffect, useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
@@ -34,7 +35,7 @@ export default function Header() {
     e.preventDefault();
   
     try {
-      const uri = "http://localhost:3000/logout";
+      const uri = "http://localhost:3000/api/auth/logout";
       const response = await axios.post(uri, {}, {
         withCredentials: true,
       });
@@ -119,8 +120,8 @@ export default function Header() {
             Menu
           </button>
         </div>
-        <div className="input-group d-none d-sm-flex" style={{ maxWidth: '550px' }}>
-          <button type="button" className="btn bg-white dropdown-toggle fw-bold px-3" data-bs-toggle="dropdown">
+        <div className="input-group d-none d-sm-flex" style={{ maxWidth: '600px', height: '35px'}}>
+          <button type="button" className="btn bg-white dropdown-toggle fw-bold px-2 py-0" data-bs-toggle="dropdown">
             {search_type}
           </button>
           <ul className="dropdown-menu text-white" style={{minHeight: '410px', maxWidth: '40%', backgroundColor: "#1f1f1f" }}>
@@ -133,8 +134,8 @@ export default function Header() {
             <li><a onClick={(e) => set_search_type(e.target.textContent)} className="dropdown-item imdb-header-dropdown" href="#">Advanced Search</a></li>
           </ul>
 
-          <input type="text" className="form-control bg-white rounded-0" placeholder="" />
-          <button type="button" className="btn bg-white">
+          <input type="text" className="form-control bg-white rounded-0 p-0" placeholder="" style={{height: '35px'}}/>
+          <button type="button" className="btn bg-white p-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               strokeWidth={1.5} stroke="currentColor" style={{ height: '1.5rem', width: '1.5rem' }}>
               <path strokeLinecap="round" strokeLinejoin="round"
@@ -155,42 +156,53 @@ export default function Header() {
           {handleSignInBtnContent()}
           <div className="dropdown d-xl-flex align-items-center">
             <button className='dropdown-toggle fw-bold btn text-white px-3 py-2 lh-1 rounded-pill button-hover-effect' data-bs-toggle="dropdown">En</button>
-            <ul className="dropdown-menu text-white" style={{minHeight: '410px', maxWidth: '30%', backgroundColor: "#1f1f1f" }}>
+            <ul className="radio-list dropdown-menu text-white" style={{padding: '0', minHeight: '450px', maxWidth: '300px', backgroundColor: "#1f1f1f" }}>
+              <li>FULLY SUPPORTED</li>
               <li className='text-white dropdown-item user-dropdown-item'>
-                <div className="form-check">
-                  <input type="radio" id="radio1" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label htmlFor="radio1" className="form-check-label">English</label>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio1" className="form-check-label"><input type="radio" id="radio1" name="language"/>English (United States)</label>
+                </div>
+              </li>
+              <li className='user-dropdown-item'>PARTIALLY SUPPORTED</li>
+              <li className='text-white dropdown-item user-dropdown-item'>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio2" className="form-check-label"><input type="radio" id="radio2" name="language"/>Francais(Canada)</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
-                <div className="form-check">
-                  <input type="radio" id="radio2" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label htmlFor="radio2" className="form-check-label">French</label>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio3" className="form-check-label"><input type="radio" id="radio3" name="language"/>Francais (France)</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
-                <div className="form-check">
-                  <input type="radio" id="radio3" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label htmlFor="radio3" className="form-check-label">Italian</label>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio4" className="form-check-label"><input type="radio" id="radio4" name="language"/>Deutch (Deutchland)</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
-                <div className="form-check">
-                  <input type="radio" id="radio4" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label htmlFor="radio4" className="form-check-label">Spanish</label>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio4" className="form-check-label"><input type="radio" id="radio4" name="language"/>Italiano (Italia)</label>
                 </div>
               </li>
               <li className='text-white dropdown-item user-dropdown-item'>
-                <div className="form-check">
-                  <input type="radio" id="radio5" name="language" style={{accentColor: 'yellow'}} className="form-check-input"/>
-                  <label htmlFor="radio5" className="form-check-label">Romanian</label>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio4" className="form-check-label"><input type="radio" id="radio4" name="language"/>Portugal (Brasil)</label>
                 </div>
               </li>
-              <li className='dropdown-item imdb-header-dropdown'></li>
+              <li className='text-white dropdown-item user-dropdown-item'>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio4" className="form-check-label"><input type="radio" id="radio4" name="language"/>Portugal (Portugal)</label>
+                </div>
+              </li>
+              <li className='text-white dropdown-item user-dropdown-item'>
+                <div className="form-check" style={{paddingLeft: '14px'}}>
+                  <label htmlFor="radio5" className="form-check-label"> <input type="radio" id="radio5" name="language"/>Romanian</label>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
-        <div className='d-flex d-md-none fw-bold'>
+        <div className='d-flex d-sm-none fw-bold'>
           <button type="button" className="btn btn-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               strokeWidth={1.5} stroke="currentColor" style={{ height: '1.5rem', width: '1.5rem' }}>
@@ -198,11 +210,11 @@ export default function Header() {
                 d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
           </button>
-          <button className='btn text-white px-1 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none" to="/signin">{handleSignInBtnContent()}</Link></button>
+          {handleSignInBtnContent()}
           <button className='btn text-black fw-bold bg-warning rounded-pill px-3 py-0 lh-1 button-hover-effect'>Use app</button>
         </div>
-        <div className='d-none d-md-flex d-xl-none fw-bold'>
-          <button className='btn text-white px-1 py-0 lh-1 rounded-pill button-hover-effect'><Link className="text-white fw-bold text-decoration-none" to="/signin">{handleSignInBtnContent()}</Link></button>
+        <div className='d-none d-sm-flex d-xl-none fw-bold'>
+          {handleSignInBtnContent()}
           <button className='btn text-black fw-bold bg-warning rounded-pill px-3 py-0 lh-1 button-hover-effect'>Use app</button>
         </div>
       </header>
