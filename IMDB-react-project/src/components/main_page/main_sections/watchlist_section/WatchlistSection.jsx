@@ -1,26 +1,53 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import SignedInContext from "../../../../context/SignedInContext"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons"
+import { faPlusCircle, faCheck} from "@fortawesome/free-solid-svg-icons"
+import RenderedWatchlist from "./RenderedWatchlist"
+import axios from "axios"
+
 export default function WatchListSection() {
     const [signedIn, setSignedIn, userData] = useContext(SignedInContext)
-    const userWatchlist = userData?.watchlist
+    const [userWatchlist, setUserWatchlist] = useState({})
 
-    function handleWatchlistLogic() {
-        console.log(userData)
-        if (!userWatchlist) {
-            return (
-                <div className="text-center text-white">
-                    <a href="#"><FontAwesomeIcon style={{color: 'gray'}}className="fs-3 mb-3" icon={faPlusCircle}></FontAwesomeIcon></a>
-                    <p className="fw-bold">Your Watchlist is empty</p>
-                    <p className="mb-5">Save shows and movies to keep track of what you want to watch.</p>
-                    <button className="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Browse popular movies</button>
-                </div>
-            )
+    useEffect(() => {
+        async function fetchUserWatchlist() {
+            console.log(signedIn)
+            try {
+                const response = 
+                    await axios.post("http://localhost:3000/api/watchlist/get-watchlist", {email: userData.userData.email}, {withCredentials: true});
+                setUserWatchlist(response.data);
+            } catch (error) {
+                console.log("user not found by client");
+            }
         }
 
+        fetchUserWatchlist()
+    }, [userData])
+
+    function handleWatchlistLogic() {
+        if (!userWatchlist?.movieList?.length) {
+            if (userData.signedIn === true) {
+                return (
+                    <div className="text-center text-white">
+                        <a href="#"><FontAwesomeIcon style={{color: 'gray'}}className="fs-3 mb-3" icon={faPlusCircle}></FontAwesomeIcon></a>
+                        <p className="fw-bold">Your Watchlist is empty</p>
+                        <p className="mb-5">Save shows and movies to keep track of what you want to watch.</p>
+                        <button className="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Browse popular movies</button>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="text-center text-white">
+                        <a href="#"><FontAwesomeIcon style={{color: 'gray'}}className="fs-3 mb-3" icon={faPlusCircle}></FontAwesomeIcon></a>
+                        <p className="fw-bold">Sign in to access your Watchlist</p>
+                        <p className="mb-5">Save shows and movies to keep track of what you want to watch.</p>
+                        <button className="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Sign in to IMDb</button>
+                    </div>
+                )
+            }
+        }
         
-        return "WISHLIST UNDER CONSTRUCTION";
+        return <RenderedWatchlist watchlistMovies={userWatchlist.movieList}></RenderedWatchlist>;
     }
 
     return (

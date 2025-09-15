@@ -4,7 +4,6 @@ const app = express();
 const port = 3002;
 
 app.use(express.json());
-app.use('../routes/watchlistRoutes.js');
 
 app.get('/', (request, response) => {
     console.log(request.route)

@@ -34,8 +34,18 @@ const authenticationProxy = createProxyMiddleware({
   },
 });
 
+const watchlistProxy = createProxyMiddleware({
+  target: 'http://localhost:3003',
+  changeOrigin: true,
+  logLevel: 'debug',
+  pathRewrite: {
+    '^/api/watchlist': '',
+  },
+});
+
 app.use('/api/review', reviewProxy);
 app.use('/api/auth', authenticationProxy);
+app.use('/api/watchlist', watchlistProxy);
 
 app.get('/', (request, response) => {
   response.send('Hello World from API Gateway!')

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import WatchlistButton from "./WatchlistButton";
 
 export default function TopMovieCard(props) {
     const { index, baseUrl, information } = props;
@@ -13,6 +14,7 @@ export default function TopMovieCard(props) {
                 borderTopRightRadius: '1rem', 
                 borderBottomRightRadius: '1rem',
                 borderBottomLeftRadius: '1rem',
+                maxWidth: '200px',
             }}>
             <img src={baseUrl + poster_path} className="img-fluid"
                 style={{
@@ -28,7 +30,7 @@ export default function TopMovieCard(props) {
             />
             <div className="px-1 py-4 d-flex flex-column align-items-start">
                 <p className="fw-bold text-white mb-5">{index + 1}.{information?.original_title}</p>
-                <button className="btn rounded-pill fw-bold px-5 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>+ Watchlist</button>
+                <WatchlistButton movieInfo={props}></WatchlistButton>
                 <button className="btn rounded-pill fw-bold px-5 py-2"><FontAwesomeIcon className="fw-bold text-white" icon={faPlay}></FontAwesomeIcon>Trailer</button>
             </div>
         </li>
