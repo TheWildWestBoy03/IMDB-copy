@@ -3,6 +3,10 @@
     color: #5799ef;
 }
 
+.review-btn {
+    opacity: 0;
+}
+
 .watchlist-button:hover {
     background-color: #30353c;
     color: #5799ef;
@@ -18,4 +22,8 @@
 .trailer-btn:hover {
     background-color: #555;
     transition: .3s ease-in-out background-color;
+}
+
+.growing-animation-dummyblock {
+    height: 0;
 }
