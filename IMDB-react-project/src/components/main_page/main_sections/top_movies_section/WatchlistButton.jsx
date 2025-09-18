@@ -4,6 +4,7 @@ import axios from "axios"
 import SignedInContext from "../../../../context/SignedInContext";
 import { useState } from "react";
 import { useContext, useEffect} from "react";
+import './WatchlistButton.css';
 
 export default function WatchlistButton(props) {
     const movieInfo = props.movieInfo;
@@ -57,7 +58,7 @@ export default function WatchlistButton(props) {
     return (
         <button 
             onClick={(e) => toggleWatchlistItem(e)}
-            className="btn rounded-pill fw-bold px-5 py-2" 
-            style={{ backgroundColor: '#141414', color: '#5799ef' }}>{handleSavingStatement()}</button>
+            className="btn rounded-pill fw-bold px-5 py-2 watchlist-button" 
+        >{handleSavingStatement()}</button>
     )
 }

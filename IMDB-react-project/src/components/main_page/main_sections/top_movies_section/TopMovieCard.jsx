@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import WatchlistButton from "./WatchlistButton";
+import "./WatchlistButton.css"
 
 export default function TopMovieCard(props) {
     const { index, baseUrl, information } = props;
@@ -29,9 +30,14 @@ export default function TopMovieCard(props) {
                 }}
             />
             <div className="px-1 py-4 d-flex flex-column align-items-start">
-                <p className="fw-bold text-white mb-5">{index + 1}.{information?.original_title}</p>
-                <WatchlistButton movieInfo={props}></WatchlistButton>
-                <button className="btn rounded-pill fw-bold px-5 py-2"><FontAwesomeIcon className="fw-bold text-white" icon={faPlay}></FontAwesomeIcon>Trailer</button>
+                <div style={{minHeight: '120px'}}><p className="fw-bold text-white mb-5">{index + 1}.{information?.original_title}</p></div>
+                <div className="w-100">
+                    <WatchlistButton movieInfo={props}></WatchlistButton>
+                    <button className="btn rounded-pill fw-bold px-4 py-2 trailer-btn"
+                            style={{display: "block", margin: "0 auto", color: 'white'}}>
+                        <FontAwesomeIcon className="fw-bold text-white" icon={faPlay}></FontAwesomeIcon>Trailer
+                    </button>
+                </div>
             </div>
         </li>
     )

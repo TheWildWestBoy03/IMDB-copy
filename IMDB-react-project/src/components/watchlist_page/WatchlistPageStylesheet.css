@@ -1,0 +1,92 @@
+.left-side {
+    width: 65%;
+    display: inline-block;
+}
+
+.right-side {
+    width: 30%;
+    position: relative;
+}
+
+@media screen and (max-width: 800px) {
+    .header-wrapper {
+        flex-direction: column;
+    }
+    .left-side, .right-side {
+        width: 100%;
+    }
+
+    .right-side {
+        margin-top: 32px;
+    }
+
+    .watchlist-main-button {
+        width: 100%;
+    }
+}
+
+.dropdown-item:hover {
+    background: #0e63c2;
+    color: white;
+}
+
+button {
+    border: 0;
+}
+
+.sort-container button:not(.dropdown-toggle) {
+    font-size: 1.25rem;
+    background-color: white;
+    transition: .5s ease-in-out background-color;
+    border-radius: 100%;
+    padding: 16px;
+    aspect-ratio: 1 / 1;
+    max-width: 50px;
+    max-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.highlight-btn {
+    color: #0e63c2;
+    border: 1px solid #0e63c2;
+}
+
+.sort-container button:hover {
+    background: #f4f4f4;
+}
+
+.watched-item {
+    text-decoration-line: none;
+    background-color: white;
+    border-radius: 16px;
+}
+
+.watched-item:hover {
+    background: #ecf3fa;
+}
+
+.first {
+    width: 60%;
+}
+
+.second {
+    width: 30%;
+}
+
+@media screen and (max-width: 1000px) {
+    .flex-toggler {
+        display: flex;
+        flex-direction: column;
+        width: 100%
+    }
+
+    .first, .second{
+        width: 100%;
+    }
+
+    .second {
+        margin-top: 40px;
+    }
+}

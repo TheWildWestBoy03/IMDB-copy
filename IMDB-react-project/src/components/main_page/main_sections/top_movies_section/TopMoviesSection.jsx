@@ -1,5 +1,3 @@
-import { useState, useContext } from "react"
-import SignedInContext from "../../../../context/SignedInContext"
 import TopMoviesCarousel from './TopMoviesCarousel'
 
 export default function TopMoviesSection() {

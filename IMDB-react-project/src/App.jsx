@@ -13,6 +13,7 @@ import RegisterPage from './components/register_page/RegisterPage';
 import SignedInContext from './context/SignedInContext';
 import { useState} from 'react';
 import useFetchUserData from './hooks/useFetchUserData'
+import WatchlistPage from './components/watchlist_page/WatchlistPage';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -25,6 +26,7 @@ function App() {
           <Route element={<Header/>}>
             <Route index path="/" element={<MainPage/>}></Route>
             <Route path="/signin" element={<SignInPage/>}></Route>
+            <Route path="/user/watchlist" element={<WatchlistPage/>}></Route>
           </Route>
           <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/register" element={<RegisterPage/>}></Route>

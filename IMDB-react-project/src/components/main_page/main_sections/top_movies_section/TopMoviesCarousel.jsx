@@ -102,7 +102,7 @@ export default function topMovieSection() {
             <h4 className="text-white px-2 mb-4" style={{
                 borderLeft: '5px solid yellow',
                 borderRadius: '2px',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
             }}>Top 10 on IMDb this week {'>'}</h4>
             <ul 
                 onMouseEnter={() => handleMouseBtnChanging('enter')}
@@ -111,7 +111,8 @@ export default function topMovieSection() {
                 className="w-100 p-0 d-flex my-2" 
                 style={{
                     gap: '0.5rem',
-                    minHeight: '520px'
+                    minHeight: '520px',
+                    overflowY: 'hidden'
                 }}
                 >
                 {topMoviesInformation.map((topMovie, index) => {

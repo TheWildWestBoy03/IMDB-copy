@@ -1,0 +1,21 @@
+.watchlist-button {
+    background-color: #141414;
+    color: #5799ef;
+}
+
+.watchlist-button:hover {
+    background-color: #30353c;
+    color: #5799ef;
+    transition: .3s linear background-color;
+}
+
+.trailer-btn {
+    display: block;
+    margin: 0 auto;
+    color: white;
+}
+
+.trailer-btn:hover {
+    background-color: #555;
+    transition: .3s ease-in-out background-color;
+}

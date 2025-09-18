@@ -73,11 +73,6 @@ export default function RenderedWatchlist(props) {
 
     return (
         <div className="col-lg-12 position-relative p-0 ">
-            <h4 className="text-white px-2 mb-4" style={{
-                borderLeft: '5px solid yellow',
-                borderRadius: '2px',
-                fontWeight: 'bold'
-            }}>Top 10 on IMDb this week {'>'}</h4>
             <ul 
                 onMouseEnter={() => handleMouseBtnChanging('enter')}
                 onMouseLeave={() => handleMouseBtnChanging('leave')}
@@ -85,7 +80,7 @@ export default function RenderedWatchlist(props) {
                 className="w-100 p-0 d-flex my-2" 
                 style={{
                     gap: '0.5rem',
-                    minHeight: '520px'
+                    minHeight: '570px'
                 }}
                 >
                 {props.watchlistMovies.map((topMovie, index) => {
