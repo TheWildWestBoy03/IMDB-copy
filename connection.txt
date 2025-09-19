@@ -1,2 +1,0 @@
-mongodb+srv://pog333alex:AN5ublYQ5DXzSuuy@bookcluster.gn8qeok.mongodb.net/
-mongodb+srv://pog333alex:1234@bookcluster.gn8qeok.mongodb.net/        ----- nou
