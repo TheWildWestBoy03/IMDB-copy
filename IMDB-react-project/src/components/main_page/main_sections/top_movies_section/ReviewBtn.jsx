@@ -1,6 +1,42 @@
-export default function ReviewBtn() {
+import { useState } from "react";
+import ReviewSlide from "../review_page/ReviewSlide";
+
+export default function ReviewBtn(props) {
+    const [clicked, setClick] = useState(false);
+
+    function computeNextState(lastClicked) {
+        setClick(lastClicked);
+    }
+
+    function displayReviewForm() {
+        const reviewSlides = document.getElementsByClassName("review-slide");
+        let reviewSlide = reviewSlides[0];
+
+        for (let i = 0; i < reviewSlides.length; i++) {
+            if (reviewSlides[i].id === props.movieInfo.original_title) {
+                reviewSlide = reviewSlides[i]
+            } 
+        }
+
+        setClick((lastclick) => {
+            let newClick = !lastclick;
+
+            if (newClick === true) {
+                reviewSlide.style.right = 0;
+                document.documentElement.style.overflow = 'hidden';
+            } else {
+                reviewSlide.style.right = '-400px';
+                document.documentElement.style.overflow = 'auto';
+            }
+            return newClick;
+        });
+    }
+
     return (
-        <button className="btn rounded-pill fw-bold px-5 py-2 watchlist-button w-100 review-btn" 
-                >+ Review</button>
+        <>
+            <button onClick={(e) => displayReviewForm(e)} className="btn rounded-pill fw-bold px-5 py-2 watchlist-button w-100 review-btn" 
+                    >+ Review</button>
+            <ReviewSlide movieInformation={props.movieInfo} computeClickedState={computeNextState}></ReviewSlide>
+        </>
     )
 }

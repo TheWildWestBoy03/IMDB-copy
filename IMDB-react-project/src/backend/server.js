@@ -21,7 +21,7 @@ const reviewProxy = createProxyMiddleware({
   changeOrigin: true,
   logLevel: 'debug',
   pathRewrite: {
-    '^/api/review': '',
+    '^/api/reviews': '',
   },
 });
 
@@ -43,7 +43,7 @@ const watchlistProxy = createProxyMiddleware({
   },
 });
 
-app.use('/api/review', reviewProxy);
+app.use('/api/reviews', reviewProxy);
 app.use('/api/auth', authenticationProxy);
 app.use('/api/watchlist', watchlistProxy);
 

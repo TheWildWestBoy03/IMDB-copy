@@ -1,6 +1,18 @@
 ul {
   width: 100vw;
-  height: 800px;
+  height: 300px;
+  padding: 10px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+
+  columns: 1;
+  text-align: center;
+}
+
+
+#carousel-topmovies, #carousel-watchlist{
+  width: 100vw;
+  height: 600px;
   padding: 10px;
   overflow-x: hidden;
   scroll-snap-type: x mandatory;

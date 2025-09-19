@@ -44,7 +44,7 @@ export default function TopMovieCard(props) {
     }
 
     function getReviewBtn() {
-        return <ReviewBtn></ReviewBtn>
+        return <ReviewBtn movieInfo={information}></ReviewBtn>
     }
 
     return (
