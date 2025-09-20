@@ -14,6 +14,7 @@ import SignedInContext from './context/SignedInContext';
 import { useState} from 'react';
 import useFetchUserData from './hooks/useFetchUserData'
 import WatchlistPage from './components/watchlist_page/WatchlistPage';
+import AccountSettingsPage from './components/account_settings_page/AccountSettingsPage';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -21,12 +22,14 @@ function App() {
 
   return (
     <SignedInContext.Provider value={[signedIn, setSignedIn, userData]}>
+      <title>IMDb: Ratings, Reviews and Where to Watch the Best Movies & TV Shows</title>
       <BrowserRouter>
         <Routes>
           <Route element={<Header/>}>
             <Route index path="/" element={<MainPage/>}></Route>
             <Route path="/signin" element={<SignInPage/>}></Route>
             <Route path="/user/watchlist" element={<WatchlistPage/>}></Route>
+            <Route path="/user/account-settings" element={<AccountSettingsPage></AccountSettingsPage>}></Route>
           </Route>
           <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/register" element={<RegisterPage/>}></Route>

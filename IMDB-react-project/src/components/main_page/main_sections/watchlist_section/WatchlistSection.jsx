@@ -11,7 +11,6 @@ export default function WatchListSection() {
 
     useEffect(() => {
         async function fetchUserWatchlist() {
-            console.log(signedIn)
             try {
                 const response = 
                     await axios.post("http://localhost:3000/api/watchlist/get-watchlist", {email: userData.userData.email}, {withCredentials: true});
@@ -41,7 +40,9 @@ export default function WatchListSection() {
                         <a href="#"><FontAwesomeIcon style={{color: 'gray'}}className="fs-3 mb-3" icon={faPlusCircle}></FontAwesomeIcon></a>
                         <p className="fw-bold">Sign in to access your Watchlist</p>
                         <p className="mb-5">Save shows and movies to keep track of what you want to watch.</p>
-                        <button className="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Sign in to IMDb</button>
+                        <button 
+                            onClick={(event) => window.location = '/signin'}
+                            className="btn rounded-pill fw-bold px-4 py-2" style={{ backgroundColor: '#141414', color: '#5799ef' }}>Sign in to IMDb</button>
                     </div>
                 )
             }

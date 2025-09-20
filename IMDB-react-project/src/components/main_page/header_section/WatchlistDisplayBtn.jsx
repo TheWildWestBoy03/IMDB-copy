@@ -1,7 +1,6 @@
 export default function WatchlistDisplayBtn() {
     function handleClick(event) {
         event.preventDefault()
-        console.log("Watchlist btn clicked");
         window.location = "http://localhost:5173/user/watchlist";
     }
 
