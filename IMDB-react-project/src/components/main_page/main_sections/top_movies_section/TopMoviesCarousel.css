@@ -4,7 +4,6 @@ ul {
   padding: 10px;
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
-
   columns: 1;
   text-align: center;
 }
@@ -16,7 +15,6 @@ ul {
   padding: 10px;
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
-
   columns: 1;
   text-align: center;
 }

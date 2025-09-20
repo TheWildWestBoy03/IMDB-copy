@@ -63,7 +63,7 @@ export default function WatchlistSortOptions(props) {
                             <li className="dropdown-item p-0">Your rating</li>
                         </ul>
                     </div>
-                    <button style={{color: '#0e63c2'}}className="ascending-type-btn" onClick={(event) => handleOrderClick(event)}>{getAscendingOrderIcon()}</button>
+                    <button style={{color: '#0e63c2'}} className="ascending-type-btn" onClick={(event) => handleOrderClick(event)}>{getAscendingOrderIcon()}</button>
                     <button onClick={(event) => handleCriteriaBtnClick(event)}><FontAwesomeIcon icon={faEllipsisVertical} className="mx-1"></FontAwesomeIcon><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></button>
                     <button onClick={(event) => handleCriteriaBtnClick(event)}><FontAwesomeIcon icon={faGripHorizontal}></FontAwesomeIcon></button>
                     <button onClick={(event) => handleCriteriaBtnClick(event)} className="highlight-btn"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></button>

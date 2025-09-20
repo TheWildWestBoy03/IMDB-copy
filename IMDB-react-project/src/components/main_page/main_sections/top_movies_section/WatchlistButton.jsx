@@ -49,6 +49,7 @@ export default function WatchlistButton(props) {
         }
 
         try {
+            console.log(movieInfo)
             const result = await axios.post("http://localhost:3000/api/watchlist/add-movie", movieInfo, {withCredentials: true});
         } catch (error) {
             console.log(error)

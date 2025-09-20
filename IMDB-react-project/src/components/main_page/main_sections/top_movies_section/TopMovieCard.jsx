@@ -4,6 +4,7 @@ import WatchlistButton from "./WatchlistButton";
 import "./WatchlistButton.css"
 import { useState } from "react";
 import ReviewBtn from "./ReviewBtn";
+import RateBtn from "./RateBtn";
 
 export default function TopMovieCard(props) {
     const { index, baseUrl, information } = props;
@@ -22,9 +23,9 @@ export default function TopMovieCard(props) {
         currentNode.style.height = "580px";
         currentNode.style.transition = '.5s ease-in-out height';
 
-        const reviewBtn = currentNode.children[1].children[1].children[2];
-        reviewBtn.style.opacity = 1;
-        reviewBtn.style.transition = '1s ease-in-out opacity';
+        const ratingBtnSet = currentNode.children[1].children[1].children[2];
+        ratingBtnSet.style.opacity = 1;
+        ratingBtnSet.style.transition = '1s ease-in-out opacity';
     }
 
     function removeReviewBtn(e) {
@@ -35,16 +36,20 @@ export default function TopMovieCard(props) {
             currentNode = currentNode.parentNode;
         }
 
-        currentNode.style.height = "520px";
+        currentNode.style.height = "580px";
         currentNode.style.transition = '1s ease-in-out height';
 
-        const reviewBtn = currentNode.children[1].children[1].children[2];
-        reviewBtn.style.opacity = 0;
-        reviewBtn.style.transition = '1s ease-in-out opacity';
+        const ratingBtnSet = currentNode.children[1].children[1].children[2];
+        ratingBtnSet.style.opacity = 1;
+        ratingBtnSet.style.transition = '1s ease-in-out opacity';
     }
 
-    function getReviewBtn() {
-        return <ReviewBtn movieInfo={information}></ReviewBtn>
+    function getReviewBtnSet() {
+        return (
+        <div className="rating-buttons-set d-flex align-items-center justify-content-center" style={{gap: '5px'}}>
+            <ReviewBtn movieInfo={information}></ReviewBtn>
+            <RateBtn movieInfo={information}></RateBtn>
+        </div>)
     }
 
     return (
@@ -58,7 +63,7 @@ export default function TopMovieCard(props) {
                 borderBottomRightRadius: '1rem',
                 borderBottomLeftRadius: '1rem',
                 maxWidth: '200px',
-                height: '520px',
+                height: '580px',
             }}>
             <img src={baseUrl + poster_path} className="img-fluid"
                 style={{
@@ -80,10 +85,9 @@ export default function TopMovieCard(props) {
                             style={{display: "block", margin: "0 auto", color: 'white'}}>
                         <FontAwesomeIcon className="fw-bold text-white" icon={faPlay}></FontAwesomeIcon>Trailer
                     </button>
-                    {getReviewBtn()}
+                    {getReviewBtnSet()}
                 </div>
             </div>
-            <div style={{height: 0, width: '100%'}}></div>
         </li>
     )
 }

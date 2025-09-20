@@ -12,7 +12,6 @@ router.route('/get-watchlist').post(async (request, response) => {
         const user = await User.findOne({email: userEmail});
         const watchlist = await Watchlist.findOne({userId: user._id});
 
-        console.log(watchlist);
         response.status(201).json(watchlist);
     } catch (error) {
         response.status(500).json("Internal Server Error!");
@@ -26,7 +25,7 @@ router.route("/add-movie").post(async (request, response) => {
     }
 
     const poster_path = request.body.information.poster_path;
-    const title = request.body.information.title;
+    const title = request.body.information.original_title;
     const backdrop_path = request.body.information.backdrop_path;
 
     try {

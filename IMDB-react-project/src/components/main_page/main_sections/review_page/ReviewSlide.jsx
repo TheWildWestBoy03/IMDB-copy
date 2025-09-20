@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import SignedInContext from "../../../../context/SignedInContext";
 import axios from "axios";
+import StarsContainer from "../../../global_components/starsRatingContainer/StarsContainer";
 
 export default function ReviewSlide(props) {
     const baseUrl = "https://image.tmdb.org/t/p/w500";
@@ -18,15 +19,6 @@ export default function ReviewSlide(props) {
     const [isSpoiler, setSpoiler] = useState(false);
     const [signedIn, setSignedIn, userData] = useContext(SignedInContext)
     const [submitted, setSubmitted] = useState(false);
-
-    useEffect(() => {
-        function handleIconTypes() {
-            const iconTypes = Array(10).fill("regularStar");
-            setIconTypes(iconTypes);
-        }
-
-        handleIconTypes()
-    }, []);
 
     function removeItself(event) {
         const reviewSlides = document.getElementsByClassName("review-slide");
@@ -43,34 +35,8 @@ export default function ReviewSlide(props) {
         props.computeClickedState(false);
     }
     
-    function createRatingPreview(event, index) {
-
-        if (rating !== "?") {
-            return;
-        }
-
-        const starsContainer = document.getElementById('stars-container');
-        const stars = starsContainer.children;
-
-        const iconTypes = Array(10).fill("regularStar");
-        for (let i = 0; i < 10; i++) {
-            stars[i].classList.remove(...stars[i].classList);
-            if (i <= index) {
-                iconTypes[i] = "solidStar";
-            } else {
-                iconTypes[i] = "regularStar";
-            }
-        }
-
-        setIconTypes(iconTypes);
-    }
-
-    function handleClick(e, index) {
-        if (rating === "?") {
-            e.preventDefault()
-            const rating = index + 1;
-            setRating(rating);
-        }
+    function getDataFromStarsContainer(childRating) {
+        setRating(childRating);
     }
 
     function updateReviewTitle(e) {
@@ -130,31 +96,7 @@ export default function ReviewSlide(props) {
                             </span>
                         </p>
                         
-                        <div id="stars-container" className="mt-2">
-                            {renderedIconTypes.map((type, index) => {
-                                let classes = "star-bordered mx-1"
-                                if (index === 0) {
-                                    classes = "star-bordered mr-1"
-                                }
-    
-                                if (type === "regularStar") {
-                                    return (<FontAwesomeIcon 
-                                        onMouseOver={(e) => createRatingPreview(e, index)}
-                                        onMouseLeave={(e) => {if (rating === "?") setIconTypes(Array(10).fill("regularStar"))}}
-                                        onClick={(e) => handleClick(e, index)}
-                                        className={classes}
-                                        icon={regularStar}></FontAwesomeIcon>)
-                                }
-    
-                                classes = "star-filled mx-1"
-                                return (<FontAwesomeIcon 
-                                        onMouseOver={(e) => createRatingPreview(e, index)}
-                                        onMouseLeave={(e) => {if (rating === "?") setIconTypes(Array(10).fill("regularStar"))}}
-                                        onClick={(e) => handleClick(e, index)}
-                                        className={classes}
-                                        icon={solidStar}></FontAwesomeIcon>)
-                            })}
-                        </div>
+                        <StarsContainer sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
                         <textarea onChange={(e) => {updateReviewTitle(e)}}  id="title-rating-textarea" placeholder="Title of your review">{reviewTitle}</textarea>
                         <textarea onChange={(e) => {updateReviewBody(e)}} id="rating-textarea" placeholder="Your review">{reviewBody}</textarea>
                         <p id="minimum-char-message">Minimum char required: <span>300</span></p>

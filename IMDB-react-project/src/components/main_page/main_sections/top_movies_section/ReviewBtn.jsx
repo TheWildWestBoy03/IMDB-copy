@@ -34,7 +34,7 @@ export default function ReviewBtn(props) {
 
     return (
         <>
-            <button onClick={(e) => displayReviewForm(e)} className="btn rounded-pill fw-bold px-5 py-2 watchlist-button w-100 review-btn" 
+            <button onClick={(e) => displayReviewForm(e)} className="btn rounded-pill fw-bold px-2 py-2 watchlist-button review-btn" 
                     >+ Review</button>
             <ReviewSlide movieInformation={props.movieInfo} computeClickedState={computeNextState}></ReviewSlide>
         </>

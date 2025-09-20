@@ -194,3 +194,6 @@ fieldset {
     margin-top: 16px;
 }
 
+#exit-icon svg path {
+    aspect-ratio: 1 / 1;
+}

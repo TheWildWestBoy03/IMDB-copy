@@ -4,6 +4,7 @@ import { faEnvelope, faGlobe, faLock, faUser, faPencil, faTrash } from "@fortawe
 import { faPaperclip, faBell, faExternalLinkSquare} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
+
 export default function AccountSettingsPageOptions() {
     const optionsTitles = ["Email preferences", "Site settings", "Preferred services", "Privacy settings", 'Personal settings',
         "Linked accounts", "Login account", "View contributions", "Request my data", "Delete account"
