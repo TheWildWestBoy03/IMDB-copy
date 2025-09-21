@@ -1,0 +1,19 @@
+import LearnMoreSection from "../../LearnMoreSection.jsx"
+import AccountPageHeader from "../account_type_page_header/AccountPageHeader"
+import PrivacyPageForm from "./PrivacyPageForm.jsx"
+
+export default function PrivacyPreferencesPage() {
+    return (
+        <>
+            <AccountPageHeader title={"Privacy Settings"}></AccountPageHeader>
+            <div className="preferences-page-body row" style={{backgroundColor: 'white', padding: '16px'}}>
+                <div className="col-lg-1"></div>
+                <div className="col-lg-10 d-flex flex-direction-row">
+                    <PrivacyPageForm></PrivacyPageForm>
+                    <LearnMoreSection></LearnMoreSection>
+                </div>
+                <div className="col-lg-1"></div>
+            </div>
+        </>
+    )
+}

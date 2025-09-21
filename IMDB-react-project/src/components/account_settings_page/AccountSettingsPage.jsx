@@ -1,5 +1,6 @@
 import AccountSettingsPageOptions from "./AccountSettingsPageOptions";
 import LearnMoreSection from "./LearnMoreSection";
+import './account_based_pages/AccountPageType.css';
 
 export default function AccountSettingsPage() {
     return (<>
@@ -13,9 +14,9 @@ export default function AccountSettingsPage() {
                 <div className="col-lg-1"></div>
             </div>
         </div>
-        <div className="account-settings-body row" style={{backgroundColor: 'white', padding: '16px'}}>
+        <div className="account-settings-body row">
             <div className="col-lg-1"></div>
-            <div className="col-lg-10 d-flex flex-direction-row">
+            <div className="col-lg-10 d-flex flex-direction-row account-settings-inner-body">
                 <AccountSettingsPageOptions></AccountSettingsPageOptions>
                 <LearnMoreSection></LearnMoreSection>
             </div>

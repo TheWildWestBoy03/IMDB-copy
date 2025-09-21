@@ -1,6 +1,8 @@
+import './account_based_pages/AccountPageType.css'
+
 export default function LearnMoreSection() {
     return (
-        <div style={{padding: '32px 56px'}}>
+        <div className="learn-more-section">
             <p style={{lineHeight: '.7', fontSize: '1.9rem', borderLeft: '5px solid #f6cf43', padding: '5px', marginBottom: '24px'}}>Learn more</p>
 
             <div>

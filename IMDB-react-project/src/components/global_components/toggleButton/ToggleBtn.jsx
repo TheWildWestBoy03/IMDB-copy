@@ -7,7 +7,7 @@ export default function ToggleBtn({sendDataToParent}) {
     function handleClick(event) {
     setPublicTruth(prevTruth => {
         const newTruth = !prevTruth;
-        sendDataToParent(newTruth);
+        sendDataToParent !== undefined && sendDataToParent(newTruth);
         return newTruth;
     });
 }

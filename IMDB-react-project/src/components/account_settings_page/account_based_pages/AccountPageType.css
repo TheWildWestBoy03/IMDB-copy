@@ -1,0 +1,198 @@
+.account-page-type-header {
+    background-color: #1f1f1f;
+    height: 160px;
+}
+
+.email-preferences-form {
+    width: 65.66%;
+    padding: 30px 16px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.personal-preferences-form {
+    width: 65.66%;
+    padding: 23px 0;
+}
+
+.general-preferences-form {
+    width: 65.66%;
+    padding: 23px 16px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    zoom: 1.5;
+    accent-color: black;
+}
+
+.checkbox-wrapper, .radio-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    margin-bottom: 6px;
+}
+
+.radio-wrapper:last-of-type {
+    margin-bottom: 22px;
+}
+
+#privacy-settings-save-btn:hover {
+    background-color: #ecf3fa;
+}
+
+#personal-preferences-data-input {
+    padding: 14px; 
+    border-radius: 4px; 
+    border: 1px solid gray;
+    color: gray;
+    margin-top: 8px;
+    width: 400px;
+}
+
+#personal-preferences-location-input {
+    width: 400px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+    padding: 6px 12px;
+}
+
+#personal-preferences-location-input-2 {
+    width: 750px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+    padding: 6px 12px;
+}
+
+.settings-page-options {
+    width: 65.66%;
+}
+
+.learn-more-section {
+    padding: 32px 56px;
+}
+
+.account-settings-body, .email-preferences-body, .preferences-page-body {
+    background-color: white;
+    padding: 16px;
+}
+
+.location-list {
+    color: black;
+    background-color: white;
+    max-width: 200px;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+}
+
+.location-list.show {
+    display: flex;
+}
+
+.country-list-element {
+    color: black;
+    display: block;
+    padding: 8px;
+}
+.country-list-element:hover {
+    background: #1967d2;
+    color: white;
+}
+
+.preferences-page-inner-body {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1100px) {
+    #personal-preferences-location-input-2 {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #personal-preferences-location-input-2 {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #personal-preferences-data-input {
+        width: 60%;
+    }
+
+    .account-settings-inner-body {
+        display: flex;
+        flex-direction: column;
+        background-color: #fafafa;
+    }
+
+    .settings-page-options {
+        width: 100%;
+    }
+
+    .learn-more-section {
+        width: 100%;
+        padding: 0;
+        margin-top: 48px;
+        background-color: #fafafa;
+    }
+
+    .account-settings-body {
+        padding: 24px;
+    }
+
+    .email-preferences-body {
+        padding: 32px;
+    }
+
+    .email-preferences-inner-body, .preferences-page-inner-body {
+        flex-direction: column;
+        background-color: #fafafa;
+    }
+    
+    .email-preferences-form {
+        width: 100%;
+        padding: 0;
+    }
+
+    .general-preferences-form {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .personal-preferences-form {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .personal-preferences-form {
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #personal-preferences-data-input {
+        width: 100%;
+    }
+}

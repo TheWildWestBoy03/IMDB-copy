@@ -4,10 +4,16 @@ import { faEnvelope, faGlobe, faLock, faUser, faPencil, faTrash } from "@fortawe
 import { faPaperclip, faBell, faExternalLinkSquare} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
+import './account_based_pages/AccountPageType.css'
 
 export default function AccountSettingsPageOptions() {
     const optionsTitles = ["Email preferences", "Site settings", "Preferred services", "Privacy settings", 'Personal settings',
         "Linked accounts", "Login account", "View contributions", "Request my data", "Delete account"
+    ]
+
+    const pageLinks = ["/preferences/email", "/preferences/general", "/preferences/services", "/preferences/privacy",
+        "/registration/personal", "/registration/linked", "/registration/login", "/contributions", "/registration/data",
+        "/registration/delete"
     ]
 
     const optionsDescriptions = [
@@ -24,13 +30,13 @@ export default function AccountSettingsPageOptions() {
     const [linkHover, setLinkHover] = useState(false);
 
     return (
-        <div style={{width: '65.66%'}}>
+        <div className="settings-page-options">
             {optionsTitles.map((option, index) => {
                 if (index < optionsDescriptions.length) {
-                    return <AccountSetting specificIcon={specificIcons[index]} rightIcon={faChevronRight} optionTitle={option} optionDescription={optionsDescriptions[index]}></AccountSetting>
+                    return <AccountSetting pageLink={pageLinks[index]} specificIcon={specificIcons[index]} rightIcon={faChevronRight} optionTitle={option} optionDescription={optionsDescriptions[index]}></AccountSetting>
                 }
 
-                return <AccountSetting specificIcon={specificIcons[index]} rightIcon={faChevronRight} optionTitle={option}></AccountSetting>
+                return <AccountSetting pageLink={pageLinks[index]} specificIcon={specificIcons[index]} rightIcon={faChevronRight} optionTitle={option}></AccountSetting>
             })}
 
             <p style={{margin: '16px 0', fontWeight: 'normal'}}>

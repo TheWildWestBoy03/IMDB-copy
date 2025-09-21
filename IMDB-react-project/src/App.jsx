@@ -15,6 +15,16 @@ import { useState} from 'react';
 import useFetchUserData from './hooks/useFetchUserData'
 import WatchlistPage from './components/watchlist_page/WatchlistPage';
 import AccountSettingsPage from './components/account_settings_page/AccountSettingsPage';
+import ContributionsPage from './components/account_settings_page/account_based_pages/ContributionsPage';
+import DeleteAccountPage from './components/account_settings_page/account_based_pages/DeleteAccountPage';
+import EmailPreferencesPage from './components/account_settings_page/account_based_pages/account_email_preferences/EmailPreferencesPage';
+import GeneralPreferencesPage from './components/account_settings_page/account_based_pages/account_site_settings/GeneralPreferencesPage';
+import LinkedAccountPage from './components/account_settings_page/account_based_pages/LinkedAccountPage';
+import LoginAccountPreferencesPage from './components/account_settings_page/account_based_pages/LoginAccountPreferencesPage';
+import PrivacyPreferencesPage from './components/account_settings_page/account_based_pages/account_privacy_preferences/PrivacyPreferencesPage';
+import RetrieveDataPage from './components/account_settings_page/account_based_pages/RetrieveDataPage';
+import ServicePreferencesPage from './components/account_settings_page/account_based_pages/ServicePreferencesPage';
+import AccountPersonalSettings from './components/account_settings_page/account_based_pages/account_personal_settings/AccountPersonalSettings';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -30,6 +40,16 @@ function App() {
             <Route path="/signin" element={<SignInPage/>}></Route>
             <Route path="/user/watchlist" element={<WatchlistPage/>}></Route>
             <Route path="/user/account-settings" element={<AccountSettingsPage></AccountSettingsPage>}></Route>
+            <Route path="/preferences/email" element={<EmailPreferencesPage></EmailPreferencesPage>}></Route>
+            <Route path="/preferences/general" element={<GeneralPreferencesPage></GeneralPreferencesPage>}></Route>
+            <Route path="/preferences/services" element={<ServicePreferencesPage></ServicePreferencesPage>}></Route>
+            <Route path="/preferences/privacy" element={<PrivacyPreferencesPage></PrivacyPreferencesPage>}></Route>
+            <Route path="/registration/personal" element={<AccountPersonalSettings></AccountPersonalSettings>}></Route>
+            <Route path="/registration/linked" element={<LinkedAccountPage></LinkedAccountPage>}></Route>
+            <Route path="/registration/login" element={<LoginAccountPreferencesPage></LoginAccountPreferencesPage>}></Route>
+            <Route path="/registration/data" element={<RetrieveDataPage></RetrieveDataPage>}></Route>
+            <Route path="/registration/delete" element={<DeleteAccountPage></DeleteAccountPage>}></Route>
+            <Route path="/contributions" element={<ContributionsPage></ContributionsPage>}></Route>
           </Route>
           <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/register" element={<RegisterPage/>}></Route>
