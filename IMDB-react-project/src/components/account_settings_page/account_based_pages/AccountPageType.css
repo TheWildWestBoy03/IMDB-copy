@@ -17,9 +17,23 @@
     padding: 23px 0;
 }
 
+.request-data-section, .delete-account-section {
+    width: 65.66%;
+    padding: 16px 0;
+}
+
+.request-data-section > div > p {
+    letter-spacing: .1px;
+}
+
 .general-preferences-form {
     width: 65.66%;
     padding: 23px 16px;
+}
+
+.linked-account-page-form {
+    width: 65.66%;
+    padding: 6px 0;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -34,6 +48,7 @@ input[type="radio"], input[type="checkbox"] {
     margin-top: 32px;
     margin-bottom: 6px;
 }
+
 
 .radio-wrapper:last-of-type {
     margin-bottom: 22px;
@@ -86,7 +101,11 @@ input[type="radio"], input[type="checkbox"] {
     padding: 32px 56px;
 }
 
-.account-settings-body, .email-preferences-body, .preferences-page-body {
+.learn-more-section-other-pages {
+    padding: 0 56px;
+}
+
+.account-settings-body, .email-preferences-body, .preferences-page-body, .linked-account-page-body {
     background-color: white;
     padding: 16px;
 }
@@ -111,6 +130,11 @@ input[type="radio"], input[type="checkbox"] {
     display: block;
     padding: 8px;
 }
+
+.hoverable:hover {
+    background-color: #ecf3fa;
+}
+
 .country-list-element:hover {
     background: #1967d2;
     color: white;
@@ -133,6 +157,10 @@ input[type="radio"], input[type="checkbox"] {
     }
 }
 @media screen and (max-width: 1000px) {
+    .request-data-section, .delete-account-section {
+        width: 100%;
+        padding: 0;
+    }
     #personal-preferences-data-input {
         width: 60%;
     }
@@ -167,7 +195,7 @@ input[type="radio"], input[type="checkbox"] {
         background-color: #fafafa;
     }
     
-    .email-preferences-form {
+    .email-preferences-form, .linked-account-page-form {
         width: 100%;
         padding: 0;
     }

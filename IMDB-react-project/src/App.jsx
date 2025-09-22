@@ -16,13 +16,13 @@ import useFetchUserData from './hooks/useFetchUserData'
 import WatchlistPage from './components/watchlist_page/WatchlistPage';
 import AccountSettingsPage from './components/account_settings_page/AccountSettingsPage';
 import ContributionsPage from './components/account_settings_page/account_based_pages/ContributionsPage';
-import DeleteAccountPage from './components/account_settings_page/account_based_pages/DeleteAccountPage';
+import DeleteAccountPage from './components/account_settings_page/account_based_pages/delete_account_page/DeleteAccountPage';
 import EmailPreferencesPage from './components/account_settings_page/account_based_pages/account_email_preferences/EmailPreferencesPage';
 import GeneralPreferencesPage from './components/account_settings_page/account_based_pages/account_site_settings/GeneralPreferencesPage';
-import LinkedAccountPage from './components/account_settings_page/account_based_pages/LinkedAccountPage';
+import LinkedAccountPage from './components/account_settings_page/account_based_pages/linked_account_preferences/LinkedAccountPage';
 import LoginAccountPreferencesPage from './components/account_settings_page/account_based_pages/LoginAccountPreferencesPage';
 import PrivacyPreferencesPage from './components/account_settings_page/account_based_pages/account_privacy_preferences/PrivacyPreferencesPage';
-import RetrieveDataPage from './components/account_settings_page/account_based_pages/RetrieveDataPage';
+import RetrieveDataPage from './components/account_settings_page/account_based_pages/retrieve_data_page/RetrieveDataPage';
 import ServicePreferencesPage from './components/account_settings_page/account_based_pages/ServicePreferencesPage';
 import AccountPersonalSettings from './components/account_settings_page/account_based_pages/account_personal_settings/AccountPersonalSettings';
 
@@ -32,7 +32,6 @@ function App() {
 
   return (
     <SignedInContext.Provider value={[signedIn, setSignedIn, userData]}>
-      <title>IMDb: Ratings, Reviews and Where to Watch the Best Movies & TV Shows</title>
       <BrowserRouter>
         <Routes>
           <Route element={<Header/>}>

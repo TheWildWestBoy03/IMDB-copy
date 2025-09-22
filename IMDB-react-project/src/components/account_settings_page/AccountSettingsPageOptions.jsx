@@ -12,7 +12,7 @@ export default function AccountSettingsPageOptions() {
     ]
 
     const pageLinks = ["/preferences/email", "/preferences/general", "/preferences/services", "/preferences/privacy",
-        "/registration/personal", "/registration/linked", "/registration/login", "/contributions", "/registration/data",
+        "/registration/personal", "/registration/linked", "/login", "/contributions", "/registration/data",
         "/registration/delete"
     ]
 

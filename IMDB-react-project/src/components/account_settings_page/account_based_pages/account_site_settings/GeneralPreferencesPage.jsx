@@ -10,7 +10,7 @@ export default function GeneralPreferencesPage() {
                 <div className="col-lg-1"></div>
                 <div className="col-lg-10 preferences-page-inner-body">
                     <GeneralUserInfoForm></GeneralUserInfoForm>
-                    <LearnMoreSection></LearnMoreSection>
+                    <LearnMoreSection classes="learn-more-section learn-more-section-other-pages"></LearnMoreSection>
                 </div>
                 <div className="col-lg-1"></div>
             </div>

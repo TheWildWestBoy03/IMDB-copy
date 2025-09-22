@@ -52,6 +52,19 @@ router.post('/login', async (request, response) => {
     }
 });
 
+router.post('/find', async(request, response) => {
+    try {
+        const email = request.body.email;
+        console.log(email)
+        const userData = await User.findOne({email});
+        console.log(userData);
+        response.status(201).json(userData);
+    } catch (error) {
+        console.log(error);
+        response.status(401).json(error);
+    }
+})
+
 router.post('/register', async(request, response) => {
     console.log("Registration in progress")
 

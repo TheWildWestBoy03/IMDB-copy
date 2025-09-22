@@ -10,7 +10,7 @@ export default function PrivacyPreferencesPage() {
                 <div className="col-lg-1"></div>
                 <div className="col-lg-10 d-flex flex-direction-row">
                     <PrivacyPageForm></PrivacyPageForm>
-                    <LearnMoreSection></LearnMoreSection>
+                    <LearnMoreSection classes="learn-more-section learn-more-section-other-pages"></LearnMoreSection>
                 </div>
                 <div className="col-lg-1"></div>
             </div>

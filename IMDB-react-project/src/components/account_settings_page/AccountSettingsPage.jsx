@@ -18,7 +18,7 @@ export default function AccountSettingsPage() {
             <div className="col-lg-1"></div>
             <div className="col-lg-10 d-flex flex-direction-row account-settings-inner-body">
                 <AccountSettingsPageOptions></AccountSettingsPageOptions>
-                <LearnMoreSection></LearnMoreSection>
+                <LearnMoreSection classes="learn-more-section"></LearnMoreSection>
             </div>
             <div className="col-lg-1"></div>
         </div>

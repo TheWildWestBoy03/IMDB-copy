@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import booksRoute from '../routes/usersRoute.js';
+import usersRoute from '../routes/usersRoute.js';
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
@@ -19,7 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/', booksRoute);
+app.use('/', usersRoute);
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {})

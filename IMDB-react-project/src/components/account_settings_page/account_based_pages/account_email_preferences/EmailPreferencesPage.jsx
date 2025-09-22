@@ -11,7 +11,7 @@ export default function EmailPreferencesPage() {
                 <div className="col-lg-1"></div>
                 <div className="col-lg-10 d-flex flex-direction-row email-preferences-inner-body">
                     <EmailPreferencesForm></EmailPreferencesForm>
-                    <LearnMoreSection></LearnMoreSection>
+                    <LearnMoreSection classes="learn-more-section learn-more-section-other-pages"></LearnMoreSection>
                 </div>
                 <div className="col-lg-1"></div>
             </div>
