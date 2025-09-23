@@ -61,7 +61,7 @@ export default function Header() {
           <ul className="dropdown-menu" style={{minHeight: '300px', maxWidth: '50%', backgroundColor: "#1f1f1f" }}>
             <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your profile</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="/user/watchlist" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your Watchlist</a></li>
-            <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your ratings</a></li>
+            <li className='px-2 py-2 user-dropdown-item'><a href="/user/ratings" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your ratings</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your lists</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your watch history</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="/user/account-settings" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Account settings</a></li>

@@ -11,11 +11,27 @@ export default function StarsContainer(props) {
     useEffect(() => {
         function handleIconTypes() {
             const iconTypes = Array(10).fill("regularStar");
+            const starsContainer = document.getElementById('stars-container');
+            const stars = starsContainer.children;
+
+            if (props.knownRating !== undefined) {
+                for (let i = 0; i < 10; i++) {
+                    stars[i].classList.remove(...stars[i].classList);
+                    if (i < props.knownRating) {
+                        iconTypes[i] = "solidStar";
+                    } else {
+                        iconTypes[i] = "regularStar";
+                    }
+                }
+
+                setRating(props.knownRating);
+            }
+
             setIconTypes(iconTypes);
         }
 
         handleIconTypes()
-    }, []);
+    }, [props.knownRating]);
     
     function createRatingPreview(event, index) {
         if (rating !== "?") {

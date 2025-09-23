@@ -25,6 +25,7 @@ import PrivacyPreferencesPage from './components/account_settings_page/account_b
 import RetrieveDataPage from './components/account_settings_page/account_based_pages/retrieve_data_page/RetrieveDataPage';
 import ServicePreferencesPage from './components/account_settings_page/account_based_pages/ServicePreferencesPage';
 import AccountPersonalSettings from './components/account_settings_page/account_based_pages/account_personal_settings/AccountPersonalSettings';
+import RatingsPage from './components/ratings_page/RatingsPage';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -38,6 +39,7 @@ function App() {
             <Route index path="/" element={<MainPage/>}></Route>
             <Route path="/signin" element={<SignInPage/>}></Route>
             <Route path="/user/watchlist" element={<WatchlistPage/>}></Route>
+            <Route path="/user/ratings" element={<RatingsPage/>}></Route>
             <Route path="/user/account-settings" element={<AccountSettingsPage></AccountSettingsPage>}></Route>
             <Route path="/preferences/email" element={<EmailPreferencesPage></EmailPreferencesPage>}></Route>
             <Route path="/preferences/general" element={<GeneralPreferencesPage></GeneralPreferencesPage>}></Route>

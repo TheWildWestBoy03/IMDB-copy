@@ -1,28 +1,72 @@
 import "./WatchlistButton.css";
 import StarsContainer from "../../../global_components/starsRatingContainer/StarsContainer";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faX } from "@fortawesome/free-solid-svg-icons";
 import "../review_page/ReviewSlide.css"
+import SignedInContext from '../../../../context/SignedInContext';
+import axios from "axios";
 
 export default function RatingModal(props) {
     const [rating, setRating] = useState("?");
+    const [signedIn, setSignedIn, userData] = useContext(SignedInContext);
+    const [retrieved, setRetrieved] = useState(false);
+
+    useEffect(() => {
+        async function getReviewByUserAndTitle() {
+            const url = "http://localhost:3000/api/reviews/rating/find";
+            const result = await axios.post(url, {userEmail: userData.userData.email, title: props.movieInfo.original_title})
+            
+            if (result.data !== null) {
+                setRating(result.data.rating);
+                setRetrieved(true);
+            }
+        }
+
+        getReviewByUserAndTitle()
+    }, [userData]);
 
     function handleModalClick(event) {
         document.documentElement.style.overflow = "auto";
         props.sendDataToRateBtn(false);
     }
 
+    function removeRating(event) {
+        const requestedRating = {
+            title: props.movieInfo.original_title,
+            userEmail: userData.userData.email
+        }
+
+        const url = "http://localhost:3000/api/reviews/rating/delete";
+        const result = axios.post(url, requestedRating, {withCredentials: true});
+
+        handleModalClick(event);
+    }
+
+    function saveRating(event) {
+        const newRating = {
+            title: props.movieInfo.original_title,
+            poster_path: props.movieInfo.poster_path,
+            rating: rating,
+            userEmail: userData.userData.email,
+        }
+
+        const url = "http://localhost:3000/api/reviews/rating/add";
+        const result = axios.post(url, newRating, {withCredentials: true});
+
+        handleModalClick(event);
+    }
+
+
     function getDataFromStarsContainer(childRating) {
-        console.log(childRating);
         setRating(childRating);
     }
 
     function renderRateButton() {
-        if (rating === "?") {
+        if (rating === "?" || retrieved === true) {
             return <button style={{color: '#939393', background: '#313131', cursor: 'default', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
         } else {
-            return <button style={{color: 'black', background: '#dab018', cursor: 'pointer', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
+            return <button onClick={(e) => saveRating(e)} style={{color: 'black', background: '#dab018', cursor: 'pointer', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
         }
     }
 
@@ -46,9 +90,9 @@ export default function RatingModal(props) {
                 <div style={{display: 'block', margin: '0 auto', padding: '32px', height: 'fit-content'}}>
                     <p style={{fontSize: '.8rem', color: "#dab018", letterSpacing: '1.5px', textAlign: 'center', margin: '8px 0'}}>RATE THIS</p>
                     <p style={{fontSize: '1.1rem', fontWeight: '500', color: 'white', textAlign: 'center', marginBottom: '16px'}}>{props.movieInfo.original_title}</p>
-                    <StarsContainer sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
+                    <StarsContainer knownRating={rating} sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
                     {renderRateButton()}
-                    <button style={{color: '#5799ef', marginTop: '16px'}} className="btn modal-rate-btn">Remove Rating</button>
+                    <button onClick={(e) => removeRating(e)} style={{color: '#5799ef', marginTop: '16px'}} className="btn modal-rate-btn">Remove Rating</button>
                 </div>
                 <FontAwesomeIcon 
                     style={{

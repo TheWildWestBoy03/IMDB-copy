@@ -45,7 +45,7 @@ export default function WatchlistSortOptions(props) {
     if (props.watchlist !== undefined) {
         return (
             <div className="d-flex justify-content-between align-items-center">
-                <span style={{fontSize: '1.15rem'}}>{props.watchlist.movieList != undefined && props.watchlist.movieList.length + " titles"}</span>
+                <span style={{fontSize: '1.15rem'}}>{props.watchlist != undefined && props.watchlist.length + " titles"}</span>
                 <div className="d-flex align-items-center sort-container justify-content-end">
                     <span>Sort by</span>
                     <div className="dropdown">
