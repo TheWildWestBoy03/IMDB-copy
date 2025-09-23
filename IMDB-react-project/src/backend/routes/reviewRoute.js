@@ -71,7 +71,7 @@ router.route('/rating/add').post(async (request, response) => {
           username: user.username
         })
 
-        if (newRating === undefined) {
+        if (newRating === null) {
             response.status(404).json("No Rating Found");
         }
 

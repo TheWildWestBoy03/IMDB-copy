@@ -21,6 +21,8 @@ export default function RatingModal(props) {
                 setRating(result.data.rating);
                 setRetrieved(true);
             }
+
+            console.log(document.getElementById(props.starsContainerId));
         }
 
         getReviewByUserAndTitle()
@@ -66,7 +68,10 @@ export default function RatingModal(props) {
         if (rating === "?" || retrieved === true) {
             return <button style={{color: '#939393', background: '#313131', cursor: 'default', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
         } else {
-            return <button onClick={(e) => saveRating(e)} style={{color: 'black', background: '#dab018', cursor: 'pointer', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
+            return <button onClick={(e) => {
+                saveRating(e);
+                window.location.reload();
+            }} style={{color: 'black', background: '#dab018', cursor: 'pointer', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
         }
     }
 
@@ -90,7 +95,7 @@ export default function RatingModal(props) {
                 <div style={{display: 'block', margin: '0 auto', padding: '32px', height: 'fit-content'}}>
                     <p style={{fontSize: '.8rem', color: "#dab018", letterSpacing: '1.5px', textAlign: 'center', margin: '8px 0'}}>RATE THIS</p>
                     <p style={{fontSize: '1.1rem', fontWeight: '500', color: 'white', textAlign: 'center', marginBottom: '16px'}}>{props.movieInfo.original_title}</p>
-                    <StarsContainer knownRating={rating} sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
+                    <StarsContainer starsContainerId={props.starsContainerId} knownRating={rating} sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
                     {renderRateButton()}
                     <button onClick={(e) => removeRating(e)} style={{color: '#5799ef', marginTop: '16px'}} className="btn modal-rate-btn">Remove Rating</button>
                 </div>

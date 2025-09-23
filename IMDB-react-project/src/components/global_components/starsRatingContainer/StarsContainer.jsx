@@ -11,23 +11,30 @@ export default function StarsContainer(props) {
     useEffect(() => {
         function handleIconTypes() {
             const iconTypes = Array(10).fill("regularStar");
-            const starsContainer = document.getElementById('stars-container');
-            const stars = starsContainer.children;
-
-            if (props.knownRating !== undefined) {
-                for (let i = 0; i < 10; i++) {
-                    stars[i].classList.remove(...stars[i].classList);
-                    if (i < props.knownRating) {
-                        iconTypes[i] = "solidStar";
-                    } else {
-                        iconTypes[i] = "regularStar";
+            console.log(props);
+            
+            try {
+                // const starsContainer = document.getElementById("stars-container");
+                const starsContainer = document.getElementById(props.starsContainerId);
+                const stars = starsContainer.children;
+                console.log(stars);
+                console.log(starsContainer);
+                if (props.knownRating !== '?') {
+                    for (let i = 0; i < 10; i++) {
+                        if (i < props.knownRating) {
+                            iconTypes[i] = "solidStar";
+                        } else {
+                            iconTypes[i] = "regularStar";
+                        }
                     }
-                }
+    
+                    setRating(props.knownRating);
+                } 
 
-                setRating(props.knownRating);
+                setIconTypes(iconTypes);
+                console.log(iconTypes);
+            } catch (error) {
             }
-
-            setIconTypes(iconTypes);
         }
 
         handleIconTypes()
@@ -38,20 +45,25 @@ export default function StarsContainer(props) {
             return;
         }
 
-        const starsContainer = document.getElementById('stars-container');
-        const stars = starsContainer.children;
-
-        const iconTypes = Array(10).fill("regularStar");
-        for (let i = 0; i < 10; i++) {
-            stars[i].classList.remove(...stars[i].classList);
-            if (i <= index) {
-                iconTypes[i] = "solidStar";
-            } else {
-                iconTypes[i] = "regularStar";
+        try {
+            const starsContainer = document.getElementById(props.starsContainerId);
+            // const starsContainer = document.getElementById("stars-container");
+            const stars = starsContainer.children;
+            
+    
+            const iconTypes = Array(10).fill("regularStar");
+            for (let i = 0; i < 10; i++) {
+                if (i <= index) {
+                    iconTypes[i] = "solidStar";
+                } else {
+                    iconTypes[i] = "regularStar";
+                }
             }
+    
+            setIconTypes(iconTypes);
+        } catch (error) {
+            console.log(error);
         }
-
-        setIconTypes(iconTypes);
     }
 
     function handleClick(e, index) {
@@ -64,7 +76,11 @@ export default function StarsContainer(props) {
     }
 
     return (
-        <div id="stars-container" className="mt-2">
+        <div
+            // id="stars-container" 
+            id={props.starsContainerId}
+            className="mt-2"
+         >
             {renderedIconTypes.map((type, index) => {
                 let classes = "star-bordered mx-1"
                 if (index === 0) {
