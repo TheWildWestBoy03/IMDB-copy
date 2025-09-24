@@ -11,14 +11,10 @@ export default function StarsContainer(props) {
     useEffect(() => {
         function handleIconTypes() {
             const iconTypes = Array(10).fill("regularStar");
-            console.log(props);
             
             try {
-                // const starsContainer = document.getElementById("stars-container");
                 const starsContainer = document.getElementById(props.starsContainerId);
                 const stars = starsContainer.children;
-                console.log(stars);
-                console.log(starsContainer);
                 if (props.knownRating !== '?') {
                     for (let i = 0; i < 10; i++) {
                         if (i < props.knownRating) {
@@ -32,7 +28,6 @@ export default function StarsContainer(props) {
                 } 
 
                 setIconTypes(iconTypes);
-                console.log(iconTypes);
             } catch (error) {
             }
         }
@@ -47,7 +42,6 @@ export default function StarsContainer(props) {
 
         try {
             const starsContainer = document.getElementById(props.starsContainerId);
-            // const starsContainer = document.getElementById("stars-container");
             const stars = starsContainer.children;
             
     
@@ -77,7 +71,6 @@ export default function StarsContainer(props) {
 
     return (
         <div
-            // id="stars-container" 
             id={props.starsContainerId}
             className="mt-2"
          >

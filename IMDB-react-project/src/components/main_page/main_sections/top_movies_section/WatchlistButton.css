@@ -5,12 +5,12 @@ body {
 }
 
 .watchlist-button {
-    background-color: #141414;
+    /* background-color: #141414; */
     color: #5799ef;
 }
 
 .watchlist-button:hover {
-    background-color: #30353c;
+    /* background-color: #30353c; */
     color: #5799ef;
     transition: .3s linear background-color;
 }

@@ -21,8 +21,6 @@ export default function RatingModal(props) {
                 setRating(result.data.rating);
                 setRetrieved(true);
             }
-
-            console.log(document.getElementById(props.starsContainerId));
         }
 
         getReviewByUserAndTitle()

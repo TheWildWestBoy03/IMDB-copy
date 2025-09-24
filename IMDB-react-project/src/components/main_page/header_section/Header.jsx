@@ -109,6 +109,7 @@ export default function Header() {
   function resetPage() {
     window.location = "http://localhost:5173/"
   }
+
   return (
     <>
       <HiddenMenu></HiddenMenu>

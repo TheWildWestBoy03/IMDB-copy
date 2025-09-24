@@ -25,7 +25,7 @@ export default function RateBtn(props) {
                 onClick={(e) => rateBtnClick(e)}
                 onMouseLeave={(e) => setHovered(false)} 
                 onMouseOver={(e) => setHovered(true)} 
-                className="btn rounded-pill fw-bold p-2 watchlist-button review-btnwatchlist-button">
+                className="btn rounded-pill fw-bold p-2 watchlist-button review-btn watchlist-button">
                 <FontAwesomeIcon icon={hovered === true ? solidStar : regularStar} style={{color: '#5799ef', marginRight: '5px'}}></FontAwesomeIcon>Rate
             </button>
             {clicked === true && <RatingModal starsContainerId={props.starsContainerId} movieInfo={props.movieInfo} sendDataToRateBtn={removeModal}></RatingModal>}

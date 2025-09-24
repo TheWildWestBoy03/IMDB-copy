@@ -65,7 +65,7 @@ export default function ProfilePageBodyFirstColumn() {
                 <p style={{fontFamily: 'sans-serif', fontWeight: '500', fontSize: '.9rem', letterSpacing: '.5'}}>Our updates are still in development. While the previous version of your profile is no longer accessible, we're actively working on improvements, and some of the missing features will be returning soon! Stay tuned for their return. 
                     In the meantime, your Ratings Analysis is still available on our iOS and Android apps, found on your profile page. To view your Rating Distribution(s) by Year and Genre, please refer to our new <a href="#" style={{textDecoration: 'none', color: '#3c7ec9'}}>Help guide</a>.</p>
             </div>
-            <div style={{marginTop: '10px'}} className='badges-section'>
+            <div style={{marginTop: '10px'}} className='profile-body-section'>
                 <div className="d-flex align-items-center" style={{fontWeight: '700', fontSize: '1.75rem'}}>
                     <div style={{width: '5px',
                                 display: 'inline-block',
