@@ -1,0 +1,290 @@
+Specializari Summary
+
+C*
+	S1:
+		Managementul proiectelor
+		Bazele managementului
+		+2 optionale de la celelalte specializari
+	S2:
+		Pregatire proiect diploma
+		+1 optional de la celelalte specializari
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C1 -  Arhitectura calculatoarelor
+	S1:
+		Arhitecturi și prelucrări paralele
+		Proiectarea rețelelor
+		Structuri multiprocesor
+	S2:
+		Cloud computing
+		Proiectarea VLSI
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C2 - Sisteme încorporate
+	S1:
+		Sisteme încorporate
+		Procesarea semnalelor
+		Elemente de informatică mobilă
+	S2:
+		Sisteme de achiziții de date
+		Poziționarea dispozitivelor mobile
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C3 - Sisteme software
+	S1:
+		Compilatoare
+		Sisteme concurente și distribuite
+		Baze de date distribuite
+	S2:
+		Tehnologii web
+		Structura internă a sistemelor de operare
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C4 - Algortimica
+	S1:
+		Învățare automată
+		Programare grafică avansată și prelucrare de imagini
+		Interacțiunea om-calculator
+	S2:
+		Instrumente pentru dezvoltarea programelor
+		Criptologie
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C5 - Tehnologia Informației
+	S1:
+		Administrarea bazelor de date
+		Integrarea sistemelor informatice
+		Managementul proiectelor software
+
+		* extra *
+		Invatare supervizata
+		Calcul cu date
+		Modelare matematica
+
+	S2:
+		Evaluarea performanțelor
+		E-commerce
+
+		* extra *
+		Depozitarea datelor
+		Analiza aplicata a datelor
+
+
+
+
+
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C1 -  Arhitectura calculatoarelor
+	S1:
+		Arhitecturi și prelucrări paralele
+			- proiect echipa, laburi easy
+			- echipa~ASC, examen~ASC
+
+		Proiectarea rețelelor (PR IoT)
+			- proiect review articole, activitate indiv
+
+		Structuri multiprocesor
+			- materia pare super recomandata, f easy
+			- extensie ASC, aprox la fel cu APP (mai sus), tema aceeasi cu APP
+			- notare:
+				25% lab
+				25% teme
+				50% exam
+
+	S2:
+		Cloud computing
+			- foloisre containere virtualizare etc
+			- 1 tema probabil
+			- seamana cu uso / rl ca structura
+
+		Proiectarea VLSI
+			- cu Decebal
+			- prezenta imp curs
+			- proiect ca la CN, APM pe echipe si materia in sine pare la fel
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C2 - Sisteme încorporate
+	S1:
+		Sisteme încorporate
+			- pare un fel de continuare PM
+			- raspberry pi, florin stancu la lab
+			- teste curs 8 dim, 2 teme
+
+		Procesarea semnalelor
+			- teste curs, prezenta curs
+			- lab teme proiect examen praguri
+			- nu pare asa rau cum suna
+
+		Elemente de informatică mobilă
+			- fara teme, cv teste de lab, partial
+			- programare android => java / kotlin, ai de ales laburi sau proiect (se echivaleaza)
+
+	S2:
+		Sisteme de achiziții de date
+			- despre senzori chestii
+			- notare:
+				20% lab
+				60% proiect (singur / echipa)
+				20% exam fin
+
+		Poziționarea dispozitivelor mobile (pozitionare si estimare pt robotica si iot)
+			- despre algoritmi robotica
+			- explicatii bune organizare oribila
+			- materie lejera? (din feedback)
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C3 - Sisteme de programe de baza
+	S1:
+		Compilatoare
+			- materie grea, teme grele
+			- nota lab pe prez
+			- prima parte a materiei lfa, a 2 a iocla/cn, se face in java
+
+		Sisteme concurente și distribuite
+			- se face cu flop
+			- materie utila, se fac chestii gen docker, postgres, grafana
+			- 3 teme aprox reciclate, ar lua cv timp | se zice ca ar fi un proiect cu 3 etape "solutie cloud ready"
+
+		Baze de date distribuite
+			- pare o mizerie
+			- prag prezenta curs 50%, colocvii aiurea, proiect
+			- se fac chestii gen nosql
+
+	S2:
+		Tehnologii web
+			- se face cu Ciprian Dobre
+			- inveti chestii daca stii deja, se face C# 🤥
+			- prezenta la anumite cursuri anuntate
+			- cv proiect
+
+		Structura internă a sistemelor de operare (SO2)
+			- se face cu Radovici
+			- limbaj la alegere, teme grele
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C4 - Algortimica
+	S1:
+		Învățare automată
+			- Adina Florea la curs
+			- la fel ca IA laburi etc
+			- notare:
+				20% lab
+				40% 2 teme -> acelasi set de date 2metode
+				20% partial cu degrevare
+				20% final
+
+		Programare grafică avansată și prelucrare de imagini
+			- pare ca se face cu Florica Moldoveanu 
+			- pare un fel de egc2, echipa similara
+			- 2 parti: grafica 3d + prelucrare imagini
+			- notare:
+				4.5 2teme
+				1.5 lab
+				4 examen
+
+		Interacțiunea om-calculator
+			- clar e o mizerie
+			- organizare f proasta, se face cv legat de chatgpt + UI/UX
+			- cv proiect, examen aiurea, cursul nu are leg cu labu
+			- notare:
+				4.5 lab
+				1.5 teme
+				4 examen
+
+	S2:
+		Instrumente pentru dezvoltarea programelor
+			- Radu Ciobanu la lab, slide-uri misto
+			- cv proiect aplicatie cu microservicii docker
+
+		Criptologie
+			- nu se pune nmc pe moodle (n ai dp ce sa inveti)
+			- se zice ca e nevoie de efort, exista conceptul de teme
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+C5 - Tehnologia Informației
+	S1:
+		Administrarea bazelor de date
+			- Florin Radulescu sau Boicea
+			- exact la fel ca la BD, pare ca nu ramai cu nmc, curs mort da lejer
+			- partial si exam final grile care se repeta din anii trecuti
+
+			- notare:
+				10% prezenta curs
+				35% prezenta, activitate si test lab
+				15% partial fara degrevare
+				40% examen final sesiune
+
+		Integrarea sistemelor informatice
+			- Alex Predescu
+			- ca la IP proiect pe echipe - creare proiect cu angular arcgis (cv cu harti) firebase, proiectul se zice ca ia cv timp
+			- teste de curs (-0.5 dc nu le dai ... +0.5 bonus daca le dai si rasp corect)
+			- notarea pare cam ca la IP
+
+		Managementul proiectelor software
+			- cv proiect -> impartire pe roluri a oamenilor din echipa
+			- bonus pe prezenta lab, prezentari la lab
+
+		* extra *
+		Invatare supervizata -> Metode de invatare automata pentru ingrijirea sanatatii
+			- echipa~IA prof Irina Mocanu
+			- teorie metode invatare (sup, nesup, autosup), aplicatii medicale
+			- proiect 60%, exam 40%
+
+
+		Calcul cu date -> Data Science pt aplicatii medicale
+			- echipa la fel ca la EP
+			- deep learning, comp vision in domeniu medical ca aplicatii (doar pt setul de date)
+			- proiect 3 milestone-uri (pe echipe), la lab mentorat proiect
+
+		Modelare matematica -> Proiectarea Retelelor Neurale Private
+			- se face cu RR, poate fi orice prob data science, hackathon la jum sem
+			- pare ok, nu se intelege ce e materia / se poate schimba
+			- teoretic despre securitate modele
+
+	S2:
+		Evaluarea performanțelor
+			- 2 teme, se zice ca e aiurea materia
+			- mereu trb sa trim laburile
+
+		E-commerce
+			- se face cu Nirvana
+			- proiect usor shopify (tot punctajul dp parcurs)
+
+		* extra *
+		Depozitarea datelor -> Analiza de business
+			- nume sugestiv
+			- 60% proiect, test grila 40%
+
+		Analiza aplicata a datelor
+			- EDA dar predat de slusanschi, la curs prezentari companii
+			- proiect exhipa 60%, exam 40%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

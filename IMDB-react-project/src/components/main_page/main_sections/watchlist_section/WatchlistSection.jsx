@@ -54,24 +54,23 @@ export default function WatchListSection() {
     return (
         <>
             <div className="row">
-                <div className="col-1" style={{ maxHeight: '300px' }}></div>
-                <div className="col-10 py-3 d-flex justify-content-between">
+                <div className="col-lg-1" style={{ maxHeight: '300px' }}></div>
+                <div className="col-lg-10 py-3 d-flex justify-content-between">
                     <div className="w-75">
                         <h3 className="text-warning fw-bold">What to watch</h3>
                         <h3 className="text-white" style={{ borderLeft: '3px solid #F5C518', padding: '0.3rem' }}>From your Watchlist</h3>
                         <p className="text-secondary">Movies and TV shows that you have watchlisted</p>
                     </div>
                     <a className="text-decoration-none text-primary recommendations_watchlist_link">Get more recommendations  {'>'}</a>
-
                 </div>
-                <div className="col-1" style={{ maxHeight: '300px' }}></div>
+                <div className="col-lg-1" style={{ maxHeight: '300px' }}></div>
             </div>
             <div className="row mb-5">
-                <div className="col-1"></div>
-                <div className="col-10">
+                <div className="col-lg-1"></div>
+                <div className="col-lg-10">
                     {handleWatchlistLogic()}
                 </div>
-                <div className="col-1"></div>
+                <div className="col-lg-1"></div>
             </div>
         </>
     )

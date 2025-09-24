@@ -24,6 +24,21 @@ router.route('/review').post(async (request, response) => {
     }
 })
 
+router.route('/review/find-all').post(async (request, response) => {
+    try {
+        const email = request.body.user;
+
+        const userReviews = await Review.find({
+            userEmail: email
+        })
+
+        console.log(userReviews);
+        response.status(201).json(userReviews);
+    } catch (errors) {
+        console.log("a crapat saracu");
+    }
+})
+
 router.route('/rating/find').post(async (request, response) => {
     try {
         const rating = await Rating.findOne({
@@ -47,6 +62,7 @@ router.route('/rating/find-all').post(async (request, response) => {
             return {
                 name: rating.title,
                 posterPath: rating.posterPath,
+                rating: rating.rating
             }
         })
 

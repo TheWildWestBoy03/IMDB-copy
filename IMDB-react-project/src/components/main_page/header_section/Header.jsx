@@ -59,7 +59,7 @@ export default function Header() {
             {userData?.userData?.username.slice(0, 5)}
           </button>
           <ul className="dropdown-menu" style={{minHeight: '300px', maxWidth: '50%', backgroundColor: "#1f1f1f" }}>
-            <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your profile</a></li>
+            <li className='px-2 py-2 user-dropdown-item'><a href="/user/profile" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your profile</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="/user/watchlist" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your Watchlist</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="/user/ratings" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your ratings</a></li>
             <li className='px-2 py-2 user-dropdown-item'><a href="#" className='text-decoration-none text-white' style={{fontWeight: 'lighter'}}>Your lists</a></li>
@@ -148,9 +148,9 @@ export default function Header() {
           </button>
         </div>
         <div className='d-none d-xl-flex px-3 py-0 fw-bold'>
-          <a href="#" className="btn fw-bold px-3 py-2 border-end border-2" style={{ borderColor: 'white' }}>
-            <span className="text-white">IMDb</span>
-            <span style={{ color: '#04aad1' }}>Pro</span>
+          <a href="#" className="btn fw-bold p-1">
+            <span style={{letterSpacing: '-1px', fontWeight: '900'}} className="text-white">IMDb</span>
+            <span style={{letterSpacing: '-1px', fontWeight: '900', color: '#04aad1' }}>Pro</span>
           </a>
           <WatchlistDisplayBtn></WatchlistDisplayBtn>
           {handleSignInBtnContent()}
