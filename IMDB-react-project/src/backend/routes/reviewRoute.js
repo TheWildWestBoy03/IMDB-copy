@@ -2,6 +2,8 @@ import express from 'express';
 import { User } from '../models/userModel.js';
 import { Review } from '../models/reviewModel.js';
 import { Rating } from '../models/ratingModel.js';
+import { Production } from '../models/productionModel.js';
+import axios from 'axios';
 
 const router = express.Router();
 
@@ -16,7 +18,8 @@ router.route('/review').post(async (request, response) => {
             body: reviewData.body,
             isSpoiler: reviewData.reviewSpoiler,
             rating: parseInt(reviewData.rating),
-            timeCreated: Date.now()
+            timeCreated: Date.now(),
+            productionId: reviewData.id
         })
     } catch (error) {
         console.log(error);
@@ -28,14 +31,38 @@ router.route('/review/find-all').post(async (request, response) => {
     try {
         const email = request.body.user;
 
-        const userReviews = await Review.find({
+        let userReviews = await Review.find({
             userEmail: email
         })
 
-        console.log(userReviews);
-        response.status(201).json(userReviews);
+        const productionRetrievingUrl = "http://localhost:3000/api/productions/production/find-by-id";
+        
+        for (let i = 0; i < userReviews.length; i++) {
+            const productionId = userReviews[i].productionId;
+            let detailedProduction = await axios.post(productionRetrievingUrl, {id: productionId}, {withCredentials: true});
+            detailedProduction = detailedProduction.data;
+            
+            userReviews[i].production = detailedProduction;
+        }
+        
+        const mappedUserReviews = await Promise.all(
+            userReviews.map(async (item) => {
+                const productionId = item.productionId;
+                let detailedProduction = await axios.post(productionRetrievingUrl, {id: productionId}, {withCredentials: true});
+
+                detailedProduction = detailedProduction.data;
+
+                item.production = detailedProduction;
+                return {
+                    ...item.toObject(),
+                    production: detailedProduction
+                };
+            })
+        )
+
+        response.status(201).json(mappedUserReviews);
     } catch (errors) {
-        console.log("a crapat saracu");
+        console.log(errors);
     }
 })
 

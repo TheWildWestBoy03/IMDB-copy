@@ -27,9 +27,18 @@ router.route('/production/add').post(async (request, response) => {
     }
 })
 
-router.route('/production/save').get(async (request, response) => {
+router.route('/production/find').post(async (request, response) => {
     try {
-        const desiredMovie = await Production.find({title: "Together"});
+        const desiredMovie = await Production.findOne({original_title: request.body.title});
+        response.status(201).json(desiredMovie);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.route('/production/find-by-id').post(async (request, response) => {
+    try {
+        const desiredMovie = await Production.findOne({id: request.body.id});
         response.status(201).json(desiredMovie);
     } catch (error) {
         console.log(error);

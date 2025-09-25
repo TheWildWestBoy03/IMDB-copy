@@ -5,6 +5,10 @@ const reviewSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    productionId: {
+        type: Number,
+        required: true
+    },
     title: {
         type: String,
         required: true

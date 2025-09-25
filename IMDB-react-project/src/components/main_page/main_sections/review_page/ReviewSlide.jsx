@@ -26,7 +26,7 @@ export default function ReviewSlide(props) {
 
         for (let i = 0; i < reviewSlides.length; i++) {
             if (reviewSlides[i].id === props.movieInformation.original_title) {
-                reviewSlide = reviewSlides[i]
+                reviewSlide = reviewSlides[i];
             } 
         }
 
@@ -61,8 +61,12 @@ export default function ReviewSlide(props) {
         console.log(userTypedInformation);
 
         try {
-            const url = "http://localhost:3000/api/reviews/review";
-            const result = await axios.post(url, userTypedInformation, {withCredentials: true});
+            const reviewSaveUrl = "http://localhost:3000/api/reviews/review";
+            const productionRetrieveUrl = "http://localhost:3000/api/productions/production/find";
+
+            const detailedProduction = await axios.post(productionRetrieveUrl, {title: props.movieInformation.original_title});
+            userTypedInformation.id = detailedProduction.data.id;
+            const result = await axios.post(reviewSaveUrl, userTypedInformation, {withCredentials: true});
 
             removeItself()            
         } catch (error) {
