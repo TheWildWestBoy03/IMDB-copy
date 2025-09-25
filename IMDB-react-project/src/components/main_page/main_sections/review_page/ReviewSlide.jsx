@@ -96,9 +96,9 @@ export default function ReviewSlide(props) {
                             </span>
                         </p>
                         
-                        <StarsContainer sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
-                        <textarea onChange={(e) => {updateReviewTitle(e)}}  id="title-rating-textarea" placeholder="Title of your review">{reviewTitle}</textarea>
-                        <textarea onChange={(e) => {updateReviewBody(e)}} id="rating-textarea" placeholder="Your review">{reviewBody}</textarea>
+                        <StarsContainer knownRating={"?"} starsContainerId={props.starsContainerId} sendDataToReviewSlide={getDataFromStarsContainer}></StarsContainer>
+                        <textarea onChange={(e) => {updateReviewTitle(e)}}  id="title-rating-textarea" placeholder="Title of your review" defaultValue={reviewTitle}></textarea>
+                        <textarea onChange={(e) => {updateReviewBody(e)}} id="rating-textarea" placeholder="Your review" defaultValue={reviewBody}></textarea>
                         <p id="minimum-char-message">Minimum char required: <span>300</span></p>
                         <fieldset id="review-spoiler-fieldset">
                             <p>Does this User Review contain spoilers?</p>

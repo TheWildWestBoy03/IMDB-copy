@@ -17,20 +17,7 @@ import WatchlistDisplayBtn from './WatchlistDisplayBtn';
 export default function Header() {
   const [search_type, set_search_type] = useState("All")
   const [movie_data, set_movie_data] = useState([])
-  const [currentPosition, setCurrentPosition] = useState(0)
   const [signedIn, setSignedIn, userData] = useContext(SignedInContext)
-
-  function handleIncrement() {
-    setCurrentPosition((currentPos) => {
-      return (currentPos + 1) % movie_data.length
-    })
-  }
-
-  function handleDecrement() {
-    setCurrentPosition((currentPos) => {
-      return (currentPos - 1 + movie_data.length) % movie_data.length
-    })
-  }
 
   async function handleLogout(e) {
     e.preventDefault();
@@ -77,34 +64,47 @@ export default function Header() {
       </Link></button>)
   }
 
-  useEffect(() => {
-    async function handleFetch() {
-      try {
-        const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
-          method: 'GET',
-          headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjcwNzM1NDA2MzE2NDAzZmQzZTViOTM1OWUxNTFjNCIsIm5iZiI6MTc1MTgxMjM1OS4zLCJzdWIiOiI2ODZhODkwN2I4ZTY4OWE3NTk1M2ZhYWEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.KyzZoncEy8hRKEjAgezVdHcReBUMr1kdZ6FHGYcIvq8"
+  async function fetchDataCreateProductionsTable() {
+    const number_of_pages = 10;
+    let fetchedData = []
+
+    for (let i = 0; i < number_of_pages; i++) {
+      const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=' + (i + 1), {
+        method: 'GET',
+        headers: {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjcwNzM1NDA2MzE2NDAzZmQzZTViOTM1OWUxNTFjNCIsIm5iZiI6MTc1MTgxMjM1OS4zLCJzdWIiOiI2ODZhODkwN2I4ZTY4OWE3NTk1M2ZhYWEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.KyzZoncEy8hRKEjAgezVdHcReBUMr1kdZ6FHGYcIvq8"
+        }
+      });
+
+      const response = await data.json();
+      fetchedData.push(...response.results);
+    }
+
+    set_movie_data(fetchedData)
+
+    const uniqueMovies = Array.from(
+      new Map(fetchedData.map((m) => [m.id, m])).values()
+    );
+
+    for (let i = 0; i < uniqueMovies.length; i++) {
+        const movieId = uniqueMovies[i].id;
+
+        const data = await axios.get('https://api.themoviedb.org/3/movie/' + movieId + '?language=en-US', {
+            headers: {
+              "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjcwNzM1NDA2MzE2NDAzZmQzZTViOTM1OWUxNTFjNCIsIm5iZiI6MTc1MTgxMjM1OS4zLCJzdWIiOiI2ODZhODkwN2I4ZTY4OWE3NTk1M2ZhYWEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.KyzZoncEy8hRKEjAgezVdHcReBUMr1kdZ6FHGYcIvq8"
+            }
           }
-        });
-
-        const response = await data.json();
-        set_movie_data(response.results);
-      } catch (error) {
-        console.log(error);
-      }
+        );
+        const productionPost = await axios.post("http://localhost:3000/api/productions/production/add", data.data, {withCredentials: true})
+        console.log(productionPost.data);
     }
-
-    if (movie_data.length === 0) {
-      handleFetch();
-    }
-  }, []);
+  }
 
   const displayHiddenMenu = (event) => {
     const hiddenMenu = document.getElementById('hidden');
     hiddenMenu.classList.add('show');
     document.body.style.overflowY = 'hidden';
   }
-  const currentMovie = movie_data[currentPosition];
 
   function resetPage() {
     window.location = "http://localhost:5173/"

@@ -10,7 +10,6 @@ export default function ProfilePageBody() {
             <div className="col-lg-10 profile-page-body-wrapper">
                 <ProfilePageBodyFirstColumn></ProfilePageBodyFirstColumn>
                 <ProfilePageBodySecondColumn></ProfilePageBodySecondColumn>
-                {/* <LearnMoreSection classes="learn-more-section"></LearnMoreSection> */}
             </div>
             <div className="col-lg-1"></div>
         </div>

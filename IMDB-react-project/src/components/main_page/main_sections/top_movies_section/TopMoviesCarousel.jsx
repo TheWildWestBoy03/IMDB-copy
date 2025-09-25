@@ -24,7 +24,6 @@ export default function topMovieSection() {
                 });
     
                 const response = await data.json();
-                console.log(response)
                 setTopMoviesInformation(response.results);
             } catch (error) {
                 console.log(error);

@@ -29,6 +29,7 @@ export default function TrailerSection() {
         });
 
         const response = await data.json();
+
         set_movie_data(response.results);
       } catch (error) {
         console.log(error);

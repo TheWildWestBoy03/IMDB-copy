@@ -44,7 +44,7 @@ export default function StarsContainer(props) {
             const starsContainer = document.getElementById(props.starsContainerId);
             const stars = starsContainer.children;
             
-    
+            console.log(starsContainer)
             const iconTypes = Array(10).fill("regularStar");
             for (let i = 0; i < 10; i++) {
                 if (i <= index) {
@@ -82,7 +82,9 @@ export default function StarsContainer(props) {
 
                 if (type === "regularStar") {
                     return (<FontAwesomeIcon 
-                        onMouseOver={(e) => createRatingPreview(e, index)}
+                        onMouseOver={(e) => {
+                            console.log("HOVERED");
+                            createRatingPreview(e, index)}}
                         onMouseLeave={(e) => {if (rating === "?") setIconTypes(Array(10).fill("regularStar"))}}
                         onClick={(e) => handleClick(e, index)}
                         className={classes}

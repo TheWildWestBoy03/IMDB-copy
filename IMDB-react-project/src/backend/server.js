@@ -43,9 +43,19 @@ const watchlistProxy = createProxyMiddleware({
   },
 });
 
+const productionProxy = createProxyMiddleware({
+  target: 'http://localhost:3004',
+  changeOrigin: true,
+  logLevel: 'debug',
+  pathRewrite: {
+    '^/api/production': '',
+  },
+});
+
 app.use('/api/reviews', reviewProxy);
 app.use('/api/auth', authenticationProxy);
 app.use('/api/watchlist', watchlistProxy);
+app.use('/api/productions', productionProxy);
 
 app.get('/', (request, response) => {
   response.send('Hello World from API Gateway!')

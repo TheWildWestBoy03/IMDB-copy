@@ -47,7 +47,7 @@ export default function TopMovieCard(props) {
     function getReviewBtnSet() {
         return (
         <div className="rating-buttons-set d-flex align-items-center justify-content-center" style={{gap: '5px'}}>
-            <ReviewBtn movieInfo={information}></ReviewBtn>
+            <ReviewBtn starsContainerId={"stars-container-1"} movieInfo={information}></ReviewBtn>
             <RateBtn starsContainerId={"stars-container-2"} movieInfo={information}></RateBtn>
         </div>)
     }
