@@ -58,8 +58,6 @@ export default function ReviewSlide(props) {
             email: userData.userData.email
         }
 
-        console.log(userTypedInformation);
-
         try {
             const reviewSaveUrl = "http://localhost:3000/api/reviews/review";
             const productionRetrieveUrl = "http://localhost:3000/api/productions/production/find";
@@ -67,8 +65,6 @@ export default function ReviewSlide(props) {
             const detailedProduction = await axios.post(productionRetrieveUrl, {title: props.movieInformation.original_title});
             userTypedInformation.id = detailedProduction.data.id;
             const result = await axios.post(reviewSaveUrl, userTypedInformation, {withCredentials: true});
-
-            removeItself()            
         } catch (error) {
             console.log(error);
         }
@@ -143,9 +139,9 @@ export default function ReviewSlide(props) {
                     {submitted === false && <button type="submit" 
                                                     className="btn w-100 mb-2 fw-bold" 
                                                     style={{background: '#0e63be', color: 'white', borderRadius: '16px'}}>Submit</button>}
-                    <button onClick={(e) => removeItself(e)} className="btn w-100 fw-bold" style={{color: '#0e63be', background: 'white', borderRadius: '16px'}}>Cancel</button>
                 </div>
             </form>
+            <button onClick={(e) => removeItself(e)} className="btn w-100 fw-bold" style={{color: '#0e63be', background: 'white', borderRadius: '16px'}}>Cancel</button>
         </div>
     ) 
 }

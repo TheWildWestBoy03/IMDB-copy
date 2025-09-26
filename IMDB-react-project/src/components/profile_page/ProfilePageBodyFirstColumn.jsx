@@ -5,6 +5,7 @@ import ProfilePageList from './ProfilePageList';
 import SignedInContext from '../../context/SignedInContext';
 import { useContext, useEffect, useState } from "react"
 import axios from "axios"
+import ProfilePageReview from './ProfilePageReview';
 
 export default function ProfilePageBodyFirstColumn() {
     const [watchlist, setWatchlist] = useState([]);
@@ -44,10 +45,9 @@ export default function ProfilePageBodyFirstColumn() {
                     });
                 })
 
-                console.log(reviewsResult.data);
                 setRatings(ratingsResult.data);
                 setWatchlist(ratedWatchlistMovies);
-                setRatings(ratingsResult.data);
+                setReviews(reviewsResult.data);
             } catch (errors) {
                 console.log(errors);
             }
@@ -104,6 +104,7 @@ export default function ProfilePageBodyFirstColumn() {
                     <FontAwesomeIcon className="hoverable-chevron" icon={faChevronRight} style={{marginLeft: "20px"}}></FontAwesomeIcon>
                 </div>
                 <p style={{marginTop: '5px', color: 'gray'}}>Your ratings are public. <a href="#" style={{color: '#3c7ec9', textDecoration: 'none', marginLeft: '3px'}}>Edit</a></p>
+                {ratings.length === 0 && <div className='w-100' style={{marginTop: '16px', textAlign: 'center', fontSize: '1.25rem'}}><b>No ratings yet.</b></div>}
                 <ProfilePageList type={"watchable"} list={ratings}></ProfilePageList>
             </div>
 
@@ -119,6 +120,7 @@ export default function ProfilePageBodyFirstColumn() {
                     <FontAwesomeIcon className="hoverable-chevron" icon={faChevronRight} style={{marginLeft: "20px"}}></FontAwesomeIcon>
                 </div>
                 <p style={{marginTop: '5px', color: 'gray'}}>Your ratings are public. <a href="#" style={{color: '#3c7ec9', textDecoration: 'none', marginLeft: '3px'}}>Edit</a></p>
+                {watchlist.length === 0 && <div className='w-100' style={{marginTop: '16px', textAlign: 'center', fontSize: '1.25rem'}}><b>Empty watchlist.</b></div>}
                 <ProfilePageList type={"watchable"} list={watchlist}></ProfilePageList>
             </div>
             <div className='profile-body-section'>
@@ -132,9 +134,13 @@ export default function ProfilePageBodyFirstColumn() {
                     Lists
                     <FontAwesomeIcon className="hoverable-chevron" icon={faChevronRight} style={{marginLeft: "20px"}}></FontAwesomeIcon>
                 </div>
+                {reviews.length === 0 && <div className='w-100' style={{textAlign: 'center', fontSize: '1.25rem'}}>
+                    <b>No lists yet.</b>
+                    <button style={{fontSize: '.85rem', display: 'block', margin: '8px auto', backgroundColor: "#a0a0a0"}} className='btn p-2, rounded-pill'><b>+  Create a new list</b></button>
+                </div>}
             </div>
             <div className='profile-body-section'>
-                <div className="d-flex align-items-center" style={{fontWeight: '700', fontSize: '1.75rem'}}>
+                <div className="d-flex align-items-center" style={{marginBottom: '16px', fontWeight: '700', fontSize: '1.75rem'}}>
                     <div style={{width: '5px',
                                 display: 'inline-block',
                                 height: '35px',
@@ -144,7 +150,11 @@ export default function ProfilePageBodyFirstColumn() {
                     Reviews
                     <FontAwesomeIcon className="hoverable-chevron" icon={faChevronRight} style={{marginLeft: "20px"}}></FontAwesomeIcon>
                 </div>
-                <ProfilePageList list={watchlist}></ProfilePageList>
+                {reviews.length !== 0 && 
+                                reviews.map((entity, index) => {
+                                        return <ProfilePageReview reviewInfo={entity}></ProfilePageReview>
+                                })}
+                {reviews.length === 0 && <div className='w-100' style={{textAlign: 'center', fontSize: '1.25rem'}}><b>No reviews yet.</b></div>}
             </div>
         </div>
     )

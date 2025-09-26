@@ -107,6 +107,73 @@
     margin-left: 64px;
 }
 
+.profile-page-review {
+    padding: 16px;
+    box-shadow: 1px 1px 5px black;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.movie-container {
+    padding: 8px;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 0;
+}
+
+.movie-information {
+    display: inline-block;
+    padding: 4px 12px;
+}
+
+.thumbs-container span {
+    font-size: 1rem;
+    color: black;
+    font-family: sans-serif;
+}
+
+.review-options-displayed {
+    position: absolute;
+    top: 101%;
+    right: 0;
+    max-width: 200px;
+    height: fit-content;
+    background-color: #1f1f1f;
+    padding: 4px 0;
+    opacity: 1;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.review-options-displayed > li {
+    padding: 16px;
+    font-size: '1.25rem';
+    font-weight: 500;
+}
+
+.review-options-displayed > li:hover {
+    background-color: #313131;
+}
+.review-options-displayed > li > a > span {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.review-options-displayed > li > a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.review-options-displayed > li:nth-of-type(2) {
+    border-bottom: 1px solid gray;
+}
+
 @media screen and (max-width: 1000px) {
     .profile-page-body-wrapper {
         display: flex;
