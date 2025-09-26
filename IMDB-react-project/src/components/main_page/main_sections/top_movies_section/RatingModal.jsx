@@ -43,16 +43,20 @@ export default function RatingModal(props) {
         handleModalClick(event);
     }
 
-    function saveRating(event) {
+    async function saveRating(event) {
+        const productionRetrieveUrl = "http://localhost:3000/api/productions/production/find";
+        const savedProduction = await axios.post(productionRetrieveUrl, {title: props.movieInfo.original_title}, {withCredentials: true});
+
         const newRating = {
             title: props.movieInfo.original_title,
             poster_path: props.movieInfo.poster_path,
             rating: rating,
             userEmail: userData.userData.email,
+            id: savedProduction.data.id,
         }
 
         const url = "http://localhost:3000/api/reviews/rating/add";
-        const result = axios.post(url, newRating, {withCredentials: true});
+        const result = await axios.post(url, newRating, {withCredentials: true});
 
         handleModalClick(event);
     }
@@ -68,7 +72,7 @@ export default function RatingModal(props) {
         } else {
             return <button onClick={(e) => {
                 saveRating(e);
-                window.location.reload();
+                // window.location.reload();
             }} style={{color: 'black', background: '#dab018', cursor: 'pointer', marginTop: '32px'}} className="btn modal-rate-btn">Rate</button>
         }
     }

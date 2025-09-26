@@ -52,10 +52,20 @@ const productionProxy = createProxyMiddleware({
   },
 });
 
+const watchHistoryProxy = createProxyMiddleware({
+  target: 'http://localhost:3005',
+  changeOrigin: true,
+  logLevel: 'debug',
+  pathRewrite: {
+    '^/api/watch-history': '',
+  },
+});
+
 app.use('/api/reviews', reviewProxy);
 app.use('/api/auth', authenticationProxy);
 app.use('/api/watchlist', watchlistProxy);
 app.use('/api/productions', productionProxy);
+app.use('/api/watch-history', watchHistoryProxy);
 
 app.get('/', (request, response) => {
   response.send('Hello World from API Gateway!')

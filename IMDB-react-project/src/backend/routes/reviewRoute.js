@@ -20,9 +20,14 @@ router.route('/review').post(async (request, response) => {
             rating: parseInt(reviewData.rating),
             timeCreated: Date.now(),
             productionId: reviewData.id
-        })
+        });
+
+        const url = "http://localhost:3000/api/watch-history/add";
+        const newWatchHistoryWrap = await axios.post(url, {productionId: newReview.productionId, email: reviewData.email});
+
+        console.log(newWatchHistoryWrap);
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         response.status(500).json("Internal server error!");
     }
 })
@@ -100,6 +105,7 @@ router.route('/rating/find-all').post(async (request, response) => {
 }) 
 
 router.route('/rating/add').post(async (request, response) => {
+    console.log("Adding new rating");
     try {
         const user = await User.findOne({email: request.body.userEmail});
         if (user === null) {
@@ -118,6 +124,10 @@ router.route('/rating/add').post(async (request, response) => {
             response.status(404).json("No Rating Found");
         }
 
+        const url = "http://localhost:3000/api/watch-history/add";
+        const newWatchHistoryWrap = await axios.post(url, {productionId: request.body.id, email: request.body.userEmail});
+
+        console.log(newWatchHistoryWrap.data);
         response.status(201).json("Ok");
     } catch (error) {
         console.log(error);

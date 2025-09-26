@@ -55,9 +55,7 @@ router.post('/login', async (request, response) => {
 router.post('/find', async(request, response) => {
     try {
         const email = request.body.email;
-        console.log(email)
         const userData = await User.findOne({email});
-        console.log(userData);
         response.status(201).json(userData);
     } catch (error) {
         console.log(error);

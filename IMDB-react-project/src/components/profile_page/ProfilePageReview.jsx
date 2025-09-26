@@ -46,7 +46,22 @@ export default function ProfilePageReview(props) {
     }
 
     function displayReviewOptions() {
-
+        return (
+            <ul className='review-options-displayed'>
+                <li>
+                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faPencil}></FontAwesomeIcon></span> Edit</a></li>
+                <li>
+                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faTrash}></FontAwesomeIcon></span> Delete</a></li>
+                <li>
+                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faFacebook}></FontAwesomeIcon></span> Facebook</a></li>
+                <li>
+                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faTwitter}></FontAwesomeIcon></span> Twitter</a></li>
+                <li>
+                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faEnvelope}></FontAwesomeIcon></span> Email link</a></li>
+                <li>
+                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faClipboard}></FontAwesomeIcon></span> Copy link</a></li>
+            </ul>
+        )
     }
 
     return (
@@ -57,7 +72,7 @@ export default function ProfilePageReview(props) {
                 </img>
                 <div className='movie-information'>
                     <p style={{lineHeight: '.8', fontSize: '1.5rem', fontWeight: '500', color: 'black', marginBottom: '8px'}}>{props.reviewInfo.production.original_title}</p>
-                    <p className='d-flex flex-row gap-2 align-items-center justify-content-start'>
+                    <p className='d-flex flex-row gap-3 align-items-center justify-content-start'>
                         <span><FontAwesomeIcon style={{color: '#f5c518', marginRight: '5px'}} icon={solidStar}></FontAwesomeIcon> 7.7</span>
                         <span><FontAwesomeIcon style={{color: '#4169c1', marginRight: '5px'}} icon={solidStar}></FontAwesomeIcon>{
                             props.reviewInfo.rating
@@ -95,22 +110,9 @@ export default function ProfilePageReview(props) {
                 <span>0</span>
                 <FontAwesomeIcon icon={faThumbsDown} style={{marginLeft: '10px'}}></FontAwesomeIcon>
                 <span>0</span>
-                <FontAwesomeIcon onClick={(e) => setOptionsDisplayed((last) => !last)} icon={faListDots} style={{marginLeft: 'auto'}}></FontAwesomeIcon>
+                <FontAwesomeIcon onClick={(e) => setOptionsDisplayed((last) => !last)} icon={faListDots} style={{cursor: 'pointer', marginLeft: 'auto'}}></FontAwesomeIcon>
             </div>
-            {optionsDisplayed === true && <ul className='review-options-displayed'>
-                <li>
-                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faPencil}></FontAwesomeIcon></span> Edit</a></li>
-                <li>
-                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faTrash}></FontAwesomeIcon></span> Delete</a></li>
-                <li>
-                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faFacebook}></FontAwesomeIcon></span> Facebook</a></li>
-                <li>
-                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faTwitter}></FontAwesomeIcon></span> Twitter</a></li>
-                <li>
-                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faEnvelope}></FontAwesomeIcon></span> Email link</a></li>
-                <li>
-                    <a><span><FontAwesomeIcon style={{color: 'gray', fontSize: '1.4rem'}} icon={faClipboard}></FontAwesomeIcon></span> Copy link</a></li>
-                </ul>}
+            {optionsDisplayed === true && displayReviewOptions()}
         </div>
     )
 }
