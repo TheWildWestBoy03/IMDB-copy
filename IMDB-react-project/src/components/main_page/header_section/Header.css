@@ -29,3 +29,26 @@
 .radio-list li:nth-of-type(3) {
     letter-spacing: 1.75px;
 }
+
+.search-header-group {
+    max-width: 680px;
+    height: 32px;
+}
+
+.imdb-header {
+    background-color: #121212;
+    padding: 11.5px;
+    padding-bottom: 11px;
+}
+
+@media screen and (max-width: 1200px) {
+    .search-header-group {
+        max-width: 500px;
+        height: 32px;
+    }
+
+    .imdb-header {
+        gap: 20px;
+        padding: 3.75px 16px;
+    }
+}

@@ -40,8 +40,8 @@ export default function Header() {
   function handleSignInBtnContent() {
     if (signedIn === true || userData.signedIn === true) {
       return (
-        <div className='dropdown d-lg-flex align-items-center'>
-          <button className="btn fw-bold h-100 text-white px-1 py-0 rounded-pill button-hover-effect" type="button" data-bs-toggle="dropdown">
+        <div className='dropdown d-flex align-items-center flex-nowrap'>
+          <button className="d-flex align-items-center flex-nowrap btn fw-bold text-white px-1 py-0 rounded-pill button-hover-effect" type="button" data-bs-toggle="dropdown">
             <FontAwesomeIcon className='text-white me-2' icon={faCircleUser}></FontAwesomeIcon>
             {userData?.userData?.username.slice(0, 5)}
           </button>
@@ -96,7 +96,6 @@ export default function Header() {
           }
         );
         const productionPost = await axios.post("http://localhost:3000/api/productions/production/add", data.data, {withCredentials: true})
-        console.log(productionPost.data);
     }
   }
 
@@ -113,19 +112,29 @@ export default function Header() {
   return (
     <>
       <HiddenMenu></HiddenMenu>
-      <header className="d-flex justify-content-between justify-content-md-center align-items-center py-2 px-2" style={{ backgroundColor: '#121212' }}>
-        <div className='d-flex flex-row-reverse flex-lg-row'>
-          <a onClick={(e) => resetPage(e)} className="btn bg-warning rounded p-0 me-2" href="#" style={{ fontWeight: 'bolder', fontSize: '1rem' }}>IMDB</a>
+      <header className="imdb-header d-flex g-1 justify-content-between justify-content-md-center align-items-center">
+        <div className='d-flex gap-3 flex-row-reverse flex-lg-row'>
+          <a onClick={(e) => resetPage(e)} 
+            className="btn bg-warning rounded p-0 px-1 me-2" 
+            href="#" 
+            style={{
+              cursor: 'pointer',
+              letterSpacing: '-1px',
+              display: 'flex', 
+              alignItems: 'center', 
+              fontWeight: 'bolder', 
+              lineHeight: '1',
+              fontSize: '1.5rem' }}>IMDb</a>
           <button onClick={(event) => {displayHiddenMenu(event)}} 
                   className='d-flex justify-content-center align-items-center border-0 rounded-pill btn text-white fw-bold px-2 py-1 button-hover-effect me-2'
                   style={{cursor: 'pointer'}}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" style={{ height: '1.5rem', width: '1.5rem', fontWeight: 'bold' }}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
-            Menu
+            {window.screen.width >= '1000px' && "Menu"}
           </button>
         </div>
-        <div className="input-group d-none d-sm-flex" style={{ maxWidth: '600px', height: '35px'}}>
+        <div className="input-group d-none d-sm-flex search-header-group">
           <button type="button" className="btn bg-white dropdown-toggle fw-bold px-2 py-0" data-bs-toggle="dropdown">
             {search_type}
           </button>
@@ -139,10 +148,10 @@ export default function Header() {
             <li><a onClick={(e) => set_search_type(e.target.textContent)} className="dropdown-item imdb-header-dropdown" href="#">Advanced Search</a></li>
           </ul>
 
-          <input type="text" className="form-control bg-white rounded-0 p-0" placeholder="" style={{height: '35px'}}/>
-          <button type="button" className="btn bg-white p-0">
+          <input type="text" className="form-control bg-white rounded-0 p-0" placeholder="" style={{height: '32px'}}/>
+          <button type="button" className="btn bg-white px-1 py-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              strokeWidth={1.5} stroke="currentColor" style={{ height: '1.5rem', width: '1.5rem' }}>
+              strokeWidth={1.5} stroke="currentColor" style={{ height: '1.4rem', width: '1.4rem' }}>
               <path strokeLinecap="round" strokeLinejoin="round"
                 d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
@@ -212,11 +221,11 @@ export default function Header() {
             </svg>
           </button>
           {handleSignInBtnContent()}
-          <button className='btn text-black fw-bold bg-warning rounded-pill px-3 py-0 lh-1 button-hover-effect'>Use app</button>
+          <button style={{textWrap: 'nowrap', fontSize: '.85rem', marginLeft: '16px'}} className='btn text-black fw-bold bg-warning rounded-pill px-3 py-2 lh-1 button-hover-effect my-2'>Use app</button>
         </div>
         <div className='d-none d-sm-flex d-xl-none fw-bold'>
           {handleSignInBtnContent()}
-          <button className='btn text-black fw-bold bg-warning rounded-pill px-3 py-0 lh-1 button-hover-effect'>Use app</button>
+          <button style={{textWrap: 'nowrap', fontSize: '.85rem', marginLeft: '16px'}} className='btn text-black fw-bold bg-warning rounded-pill px-3 py-2 lh-1 button-hover-effect my-2'>Use app</button>
         </div>
       </header>
       <Outlet></Outlet>

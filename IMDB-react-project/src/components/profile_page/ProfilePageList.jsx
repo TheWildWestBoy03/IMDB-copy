@@ -8,9 +8,7 @@ export default function ProfilePageList(props) {
         if (props.type === "watchable") {
             return (props.list !== undefined && 
                 props.list.map((entity, index) => {
-                    if (index < 3) {
-                        return <GridMovieCard movieInfo={entity}></GridMovieCard>
-                    }
+                    return <GridMovieCard movieInfo={entity}></GridMovieCard>
                 }))
         }
 

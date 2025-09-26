@@ -34,6 +34,8 @@ router.route('/add').post(async (request, response) => {
         console.log(userWatchlist);
 
         await userWatchlist.save();
+
+        response.status(201).json("ok");
     } catch (error) {
         console.log(error);
     }
