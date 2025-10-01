@@ -18,7 +18,9 @@ export default function WatchlistPageHeader() {
                                 backgroundColor: "#f5c518",
                                 borderRadius: '24px',
                                 gap: '5px',
-                            }} className="btn p-2 py-1 d-flex align-items-center watchlist-main-button">
+                            }} 
+                                onClick={(e) => window.location = '/user/new-list' }
+                                className="btn p-2 py-1 d-flex align-items-center watchlist-main-button">
                                 <span style={{fontWeight: '900', fontSize: '2rem'}}>+</span>
                                 <div>
                                     <p style={{fontSize: '1rem', textAlign: "left"}}>Create a new list</p>

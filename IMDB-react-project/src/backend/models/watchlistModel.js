@@ -7,7 +7,6 @@ const movieSchema = mongoose.Schema({
     },
     "backdropPath": {
         type: String,
-        required: true
     },
     "posterPath": {
         type: String,

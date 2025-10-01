@@ -12,7 +12,7 @@ export default function WatchlistPageBody(props) {
             <div className="col-lg-1"></div>
             <div className="col-lg-10 d-flex justify-content-between flex-toggler">
                 <WatchlistListColumn watchlist={props.watchlist}></WatchlistListColumn>
-                <WatchlistMoreToExploreColumn></WatchlistMoreToExploreColumn>
+                <WatchlistMoreToExploreColumn classes={"second"}></WatchlistMoreToExploreColumn>
             </div>
             <div className="col-lg-1"></div>
         </div>

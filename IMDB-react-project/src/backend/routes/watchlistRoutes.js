@@ -60,8 +60,10 @@ router.route("/add-movie").post(async (request, response) => {
 
         if (movies.length !== newMovies.length) {
             userWatchlist.movieList = newMovies
+            console.log("Movie already in database");
         } else {
-            movies.push(newWatchlistMovie)
+            movies.push(newWatchlistMovie);
+            console.log("Add the movie here");
         }
 
         await userWatchlist.save()

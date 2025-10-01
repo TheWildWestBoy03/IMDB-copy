@@ -28,6 +28,7 @@ import AccountPersonalSettings from './components/account_settings_page/account_
 import RatingsPage from './components/ratings_page/RatingsPage';
 import ProfilePage from './components/profile_page/ProfilePage';
 import WatchHistoryPage from './components/watch_history_page/WatchHistoryPage';
+import NewListPage from './components/new_list_form_page/NewListPage';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -55,6 +56,7 @@ function App() {
             <Route path="/registration/data" element={<RetrieveDataPage></RetrieveDataPage>}></Route>
             <Route path="/registration/delete" element={<DeleteAccountPage></DeleteAccountPage>}></Route>
             <Route path="/contributions" element={<ContributionsPage></ContributionsPage>}></Route>
+            <Route path="/user/new-list" element={<NewListPage></NewListPage>}></Route>
           </Route>
           <Route path="/login" element={<LoginPage/>}></Route>
           <Route path="/register" element={<RegisterPage/>}></Route>

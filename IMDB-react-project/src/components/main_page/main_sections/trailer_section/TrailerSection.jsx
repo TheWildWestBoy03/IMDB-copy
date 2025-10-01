@@ -21,7 +21,7 @@ export default function TrailerSection() {
   useEffect(() => {
     async function handleFetch() {
       try {
-        const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=2', {
+        const data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
           method: 'GET',
           headers: {
             "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjcwNzM1NDA2MzE2NDAzZmQzZTViOTM1OWUxNTFjNCIsIm5iZiI6MTc1MTgxMjM1OS4zLCJzdWIiOiI2ODZhODkwN2I4ZTY4OWE3NTk1M2ZhYWEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.KyzZoncEy8hRKEjAgezVdHcReBUMr1kdZ6FHGYcIvq8"
