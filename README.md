@@ -8,3 +8,6 @@ To run this application, clone the repository, no matter the operating system yo
   - Run the review microservice using: npx nodemon .\src\backend\reviewMicroservice\server.js
   - Run the watch history microservice using: npx nodemon .\src\backend\watchHistoryMicroservice\server.js
   - Run the production microservice with: npx nodemon .\src\backend\productionMicroservice\server.js
+
+
+These commands are available on Windows. For linux, just modify the backslashes with the slashes.
